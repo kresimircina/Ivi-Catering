@@ -33,7 +33,7 @@ const Naslovna = () => {
       fallback="https://placehold.co/600x400" 
       size="full" 
       />
-      {<FeaturedImg page={page} fallback="https://placehold.co/600x400" size="full"  />}
+      {/*<FeaturedImg page={page} fallback="https://placehold.co/600x400" size="full"  />*/}
       <div dangerouslySetInnerHTML={{ __html:page.content.rendered }} />
     </>
   );
