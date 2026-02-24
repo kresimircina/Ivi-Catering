@@ -9,9 +9,10 @@ import Blog from './pages/Blog';
 import Kontakt from './pages/Kontakt';
 import Usluge from './pages/Usluge';
 import Vjencanja from "./pages/Vjencanja";
-import Uslugesingle from "./pages/Uslugesingle";  
+//import Uslugesingle from "./pages/Uslugesingle";  
 import Onama from './pages/Onama';
 import BlogSingle from "./pages/BlogSingle";
+import Rezervacija from "./pages/Rezervacija";
 //import Products from "./pages/Products";
 //import Kategorije from "./pages/Kategorije";
 //import SignIn from "./pages/SignIn";
@@ -41,10 +42,11 @@ function App() {
         <Route path="/kontakt" element={<Kontakt />} />
         <Route path="/usluge" element={<Usluge />} />
        
-       
+        
         <Route path="/usluga/:slug" element={<Vjencanja />} />
         <Route path="/o-nama" element={<Onama />} />
         <Route path="/blog/:slug" element={<BlogSingle />} />
+        <Route path="/rezervacija" element={<Rezervacija />} />
         {/*<Route path="/kategorije" element={<Kategorije />} />*/}
         {/*<Route path="/signin" element={<SignIn />} /> */}
         {/*<Route path="/register" element={<Register />} />*/}

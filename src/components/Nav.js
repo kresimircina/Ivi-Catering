@@ -60,20 +60,20 @@ const Nav = () => {
                   </li>
                   <li><Link className="dropdown-item text-end" to="/usluga/privatni-eventi">Privatni eventi</Link>
                   </li>
+                   <li><Link className="dropdown-item text-end" to="/usluga/poslovni-eventi">Poslovni eventi</Link>
+                  </li>
                 </ul>
             </li>
-            <li className="nav-item">
+            {/*<li className="nav-item">
               <Link className="nav-link text-end" to="/kategorije">Kategorije</Link>
-            </li>
+            </li>*/}
             <li className="nav-item">
               <Link className="nav-link text-end" to="/o-nama">O nama</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link text-end" to="/kontakt">Kontakt</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link text-end" to="/testnastranica">Testnastranica</Link>
-            </li>
+            
             {name ? (
               <li className="nav-item">
                 <Link className="nav-link text-end" to="/admin">
