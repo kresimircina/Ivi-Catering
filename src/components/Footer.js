@@ -16,84 +16,36 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-8">
             <div className="row">
-              <div className="col-md-3">
-                <h4>Explorer</h4>
+              <div className="col-md-4 mx-auto">
+                <h4>Usluge</h4>
                   <ul>
                     <li>
-                      <Link to="#!">Electric bikes</ Link>
+                      <Link to="/usluga/vjencanja">Vjenčanja</ Link>
                     </li>
                     <li>
-                      <Link to="#!">City bikes</ Link>
+                      <Link to="/usluga/privatni-eventi">Privatni eventi</ Link>
                     </li>
                     <li>
-                      <Link to="#!">Kids bikes</ Link>
+                      <Link to="/usluga/poslovni-eventi">Poslovni eventi</ Link>
                     </li>
-                    <li>
-                      <Link to="#!">Accesories</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">Outlet</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">Business</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">Insurance Electric</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">Size guide</ Link>
-                    </li>
+                   
                   </ul>
                 
               </div>
-              <div className="col-md-3">
-                <h4>About</h4>
+              <div className="col-md-4 mx-auto">
+                <h4>Informacije</h4>
                   <ul>
                     <li>
-                      <Link to="#!">About us</ Link>
+                      <Link to="/o-nama">O nama</ Link>
                     </li>
                     <li>
-                      <Link to="#!">Journal</ Link>
+                      <Link to="/kontakt">Kontakt</ Link>
                     </li>
-                    <li>
-                      <Link to="#!">Reviews</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">Press</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">Jobs</ Link>
-                    </li>
+                    
                   </ul>
 
               </div>
-              <div className="col-md-3">
-                <h4>Help</h4>
-                  <ul>
-                    <li>
-                      <Link to="#!">Contact</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">FAQ</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">Delivery</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">Assembly & manuals</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">Payment options</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">Privacy policy</ Link>
-                    </li>
-                    <li>
-                      <Link to="#!">Terms & conditions</ Link>
-                    </li>
-                  </ul>
-
-              </div>
+              
               
             </div>
 
@@ -101,29 +53,6 @@ const Footer = () => {
           
           </div>
           <div className="col-md-4">
-            <h4>Join the ride.</h4>
-            <div className="subscribe d-flex align-items-end">
-              <form>
-               <label for="email">Sign up for our newsletter.</label>
-	                <input type="email" id="email" name="email" className="email" placeholder="Enter your email address here" required/>
-                  <button type="button" className="btn btn-outline-dark">Subscribe</button>
-
-                <p>
-                  <input type="checkbox"  name="" value="I agree"/>By signing up, I agree to the <Link to="#!">privacy policy</ Link> of Veloretti.
-                </p>
-              </form>
-            </div>
-
-            <div className="row">
-              <div className="d-flex icons justify-content-start mt-3 gap-4">
-                <i className="fa-brands fa-facebook"></i>
-                <i className="fa-brands fa-instagram"></i>
-                <i className="fa-brands fa-youtube"></i>
-                <i className="fa-brands fa-linkedin"></i>
-                <i className="fa-brands fa-tiktok"></i>
-                
-              </div>
-            </div>
             
             
           

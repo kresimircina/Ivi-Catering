@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
-import { useLocation } from "react-router-dom";
+import logoImage from "../img/2Ivilogo.png"; // Importaj sliku direktno
+//import { useLocation } from "react-router-dom";
 
 const Nav = () => {
 
-  const location = useLocation();
-  const[name, setName] = useState(null);
+  //const location = useLocation();
+  //const[name, setName] = useState(null); korisiti se samo za prikaz admin kartice, trenutno nema funkcionalnosti, ali bi se moglo koristiti u budućnosti
 
-    useEffect( () => {
+   /* useEffect( () => {
       const user = localStorage.getItem("username");
       if(user) setName(user);
     }, []
@@ -27,14 +28,14 @@ const Nav = () => {
     localStorage.removeItem("username");
     //window.location.reload();
     setName(null);
-  }
+  } */ 
 
   return (
     
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          <img src="./img/logo.svg" alt="logo" height="12"/> 
+          <img src={logoImage} alt="logo" height="70"/>
         </Link>
     
           <button
@@ -50,17 +51,17 @@ const Nav = () => {
 
         <div className="collapse navbar-collapse" id="mainNavbar">
       
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav mx-auto align-items-center">
             
             
-            <li className="nav-item dropdown text-end">
-              <Link className="nav-link dropdown-toggle" to="#!" id="ddElectric" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usluge</ Link>
-                <ul className="dropdown-menu" aria-labelledby="ddElectric">
-                  <li><Link className="dropdown-item text-end" to="/usluga/vjencanja">Vjenčanja</Link>
+            <li className="nav-item dropdown">
+              <Link className="nav-link dropdown-toggle" to="#!" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usluge</ Link>
+                <ul className="dropdown-menu">
+                  <li><Link className="dropdown-item" to="/usluga/vjencanja">Vjenčanja</Link>
                   </li>
-                  <li><Link className="dropdown-item text-end" to="/usluga/privatni-eventi">Privatni eventi</Link>
+                  <li><Link className="dropdown-item" to="/usluga/privatni-eventi">Privatni eventi</Link>
                   </li>
-                   <li><Link className="dropdown-item text-end" to="/usluga/poslovni-eventi">Poslovni eventi</Link>
+                   <li><Link className="dropdown-item" to="/usluga/poslovni-eventi">Poslovni eventi</Link>
                   </li>
                 </ul>
             </li>
@@ -68,13 +69,14 @@ const Nav = () => {
               <Link className="nav-link text-end" to="/kategorije">Kategorije</Link>
             </li>*/}
             <li className="nav-item">
-              <Link className="nav-link text-end" to="/o-nama">O nama</Link>
+              <Link className="nav-link" to="/o-nama">O nama</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-end" to="/kontakt">Kontakt</Link>
+              <Link className="nav-link" to="/kontakt">Kontakt</Link>
             </li>
-            
-            {name ? (
+          {/*ispod je kartica za admina  koja se prikazuje samo ako je korisnik prijavljen, vodi na stranicu admina gdje se mogu dobiti informacije o korisnicima i narudžbama
+          a vidi se samo ako je korisnik prijavljen, odnosno ako postoji username u localstorageu*/}
+            {/*{name ? (
               <li className="nav-item">
                 <Link className="nav-link text-end" to="/admin">
                   Admin
@@ -82,10 +84,10 @@ const Nav = () => {
               </li>
             ) : (
               ""
-            )}
+            )*/}
           </ul>
-
-          <ul className="navbar-nav ms-auto align-items-center">
+          {/*ispod je link za prijavu i košaricu,ali nije potrebno za ovaj web trenutno..moglo bi dobro doći kasnije*/}
+          {/*<ul className="navbar-nav ms-auto align-items-center">
             <li className="nav-item">
               { name ? (
                 <button onClick={logOut} className="btn btn-primary">Dobrodošli,
@@ -103,7 +105,7 @@ const Nav = () => {
                 <img src="./img/cart-wrap.svg" alt="Cart" className="icon-lg "/>
               </Link>
             </li>
-          </ul>
+          </ul>*/}
       
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link } from 'react-router-dom';
 import Loader from "../components/Loader";
+import HeroSection from "../components/HeroSection";
 
 import "./Blog.css"
 
@@ -37,10 +38,10 @@ const PoslovniEventi = () => {
 
     return (
     <>
+      
       {loading && <Loader />}
       <div className="blog-page">
         <div className="container">
-          <h1>Blog</h1>
           <div className="row">
             {posts.map((post) => {
               const image =
@@ -71,7 +72,7 @@ const PoslovniEventi = () => {
                     })}
                   </p>
                 </div>
-              );
+              );    
             })}
           </div>
         </div>
