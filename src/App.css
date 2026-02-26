@@ -239,7 +239,7 @@ footer a {
         align-items: flex-end; /* Poravnanje desno */
         padding-top: 20px;
     }
-    .nav-link {
+    .nav-link { 
         margin: 10px 0;
         font-size: 1.3rem;
         padding: 10px 0;

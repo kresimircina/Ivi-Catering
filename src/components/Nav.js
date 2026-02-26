@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
-import logoImage from "../img/2Ivilogo.png"; // Importaj sliku direktno
+import logoImage from "../img/logo.svg"; // Importaj sliku direktno
 //import { useLocation } from "react-router-dom";
 
 const Nav = () => {
