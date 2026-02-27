@@ -248,11 +248,64 @@ footer a {
 
 /* Footer - tvoj brend look */
 footer {
-    background-color: #f8f9fa; /* Svijetlo siva/bijela */
+    background-color: #fcfcfc;; /* Svijetlo siva/bijela */
     border-top: 1px solid #eee;
     padding: 80px 0 40px;
     color: #444;
+
+    .footer-contact {
+        list-style: none;
+        padding: 0;
+
+        /* WhatsApp posebna boja na hover */
+        .whatsapp-link:hover {
+        color: #25D366; /* WhatsApp zelena */
+    }
+
+
+    }
+
+
+    /* Stilovi za kontakt u footeru */
+
+
+    .footer-contact li {
+        margin-bottom: 15px;
+    }
+
+    .footer-contact a {
+    text-decoration: none;
+    color: #666; /* Osnovna boja teksta */
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    }
+
+    .footer-contact a i{
+    color: #bc9c6a; /* Tvoja zlatna boja za ikone */
+    width: 25px;
+    }
+
+    .footer-contact a:hover {
+    color: #bc9c6a;
+    
+    }
+
+    /* Društvene mreže */
+    .footer-socials a {
+    color: #444;
+    transition: transform 0.3s, color 0.3s;
+    }
+
+    .footer-socials a:hover {
+    color: #bc9c6a;
+    transform: translateY(-3px);
+    }
+
+    
+
 }
+
 
 footer h4 {
     font-size: 1rem;
@@ -283,17 +336,15 @@ footer ul li a:hover {
 }
 
 /* Gumb za povratak na vrh (TOP) */
-/* Stil za TOP gumb u footeru */
+/* TOP gumb pozicioniranje desno */
 footer .btn-danger {
-    float: right; /* Gura gumb na desnu stranu unutar kontejnera */
-    background-color: #bc9c6a;/* Tvoja zlatna boja */
-    border: none;
-    border-radius: 5px;
-    padding: 8px 20px;
-    font-weight: bold;
-    margin-top: -230px; /* Malo ga podigni ako je prenisko */
-    margin-right: -15px;
-    transition: transform 0.2s;
+  float: right;
+  background-color: #bc9c6a;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  font-weight: bold;
+  margin-top: 20px; /* Razmak od sadržaja iznad */
 }
 
 footer .btn-danger:hover {
@@ -301,6 +352,12 @@ footer .btn-danger:hover {
     background-color: #a38558;
 }
 
+/* Čišćenje floata */
+.footer-bottom-row {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
 /* Čišćenje floata da ne kvari layout ispod */
 footer .container::after {
     content: "";
