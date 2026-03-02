@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import { useLocation } from "react-router-dom"
 import ScrollToTop from "./ScrollToTop"
@@ -6,8 +7,30 @@ import { faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faInstagram, faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
+const BASE_URL = process.env.REACT_APP_API_URL
+
+
 const Footer = () => {
   const location = useLocation();
+  const[page, setPage] = useState(null);
+
+  useEffect(() => {
+      const fetchPage = async() => {
+        try{
+          const response = await fetch(BASE_URL + 'v2/pages/178?_embed');
+          if(!response.ok){
+            throw new Error('Ne mogu povući podatke');
+          }
+          const data = await response.json();
+          setPage(data);
+        } catch (err) {
+          console.log(err.message);
+        }
+      }
+      fetchPage();
+    }, []);
+  
+    if(!page) return <p>Učitavanje...</p>;
 
   if(location.pathname === "/signin") {
     return;
@@ -56,9 +79,13 @@ const Footer = () => {
                     <h4>Kontaktirajte nas</h4>
                     <ul className="footer-contact">
                       <li>
-                        <a href="https://maps.google.com/?q=Tvoja+Adresa+123" target="_blank" rel="noreferrer">
-                          <FontAwesomeIcon icon={faLocationDot} className="me-2" size="2x" /> Tvoja Adresa 123, Grad
-                        </a>
+                        <div className="data">
+                          {page.acf.adresa ? page.acf.adresa : "Nema adrese"} 
+                            <a href="https://maps.google.com/?q=Tvoja+Adresa+123" target="_blank" rel="noreferrer">
+                              <FontAwesomeIcon icon={faLocationDot} className="me-2" size="2x" /> 
+                            </a>
+                        </div>
+                       
                       </li>
                       <li>
                         <a href="tel:+385912345678">
