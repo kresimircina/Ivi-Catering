@@ -1,6 +1,7 @@
 {
   "name": "ivicatering",
-  "version": "0.1.0",
+  "homepage": "https://front2.edukacija.online/krusnov",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -17,6 +18,7 @@
     "react": "^19.2.3",
     "react-datepicker": "^9.1.0",
     "react-dom": "^19.2.3",
+    "react-helmet-async": "^3.0.0",
     "react-paginate": "^8.3.0",
     "react-router-dom": "^7.13.0",
     "react-scripts": "5.0.1",

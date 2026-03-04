@@ -33,7 +33,7 @@ import AdminLayout from "./pages/admin/AdminLayout";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename={'/krusnov'}>
       <Nav />
       <Routes>
         <Route path="/" element={<Naslovna />} />
