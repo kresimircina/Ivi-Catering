@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from 'react-router-dom';
 
+import Yoast from './../components/Yoast';
 
 //const BASE_URL = process.env.REACT_APP_API_URL;
 
@@ -31,8 +32,11 @@ const Vjencanja = () => {
     if(!page) return <p>Učitavanje</p>;
 
     return (
-
-    <div dangerouslySetInnerHTML={{ __html:page.content.rendered }}></div>
+        <>
+            <Yoast yoastHeadJson={page.yoast_head_json} />
+            <div dangerouslySetInnerHTML={{ __html:page.content.rendered }}></div>
+        </>
+    
   );
 };
 

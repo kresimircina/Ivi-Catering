@@ -5,7 +5,7 @@ import HeroSection from "../components/HeroSection";
 
 import "./Blog.css"
 
-
+import Yoast from './../components/Yoast';
 //const BASE_URL = process.env.REACT_APP_API_URL;
 
 const PoslovniEventi = () => {
@@ -38,7 +38,7 @@ const PoslovniEventi = () => {
 
     return (
     <>
-      
+      <Yoast yoastHeadJson={page.yoast_head_json} />
       {loading && <Loader />}
       <div className="blog-page">
         <div className="container">

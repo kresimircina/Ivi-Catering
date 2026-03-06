@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from "../components/Loader";
 
+import Yoast from './../components/Yoast';
+
 import "./Blog.css"
 
 //const BASE_URL = process.env.REACT_APP_API_URL;
@@ -36,6 +38,7 @@ const Privevent = () => {
 
     return (
     <>
+      <Yoast yoastHeadJson={page.yoast_head_json} />
       {loading && <Loader />}
       <div className="blog-page">
         <div className="container">

@@ -7,7 +7,7 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import "./kontakt.css"
 import { faInstagram, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
-
+import Yoast from './../components/Yoast';
 
 const Kontakt = () => {
 
@@ -32,6 +32,8 @@ const Kontakt = () => {
   };
 
   return (
+    <>
+    {/*<Yoast yoastHeadJson={page.yoast_head_json} />*/}
     <div className='container'>
       <div className='row my-4'>
         <h1 className='text-center mt-3'> Kontakt</h1>
@@ -96,6 +98,7 @@ const Kontakt = () => {
       </div>
      
     </div>
+    </>
   )
 }
 
