@@ -366,7 +366,7 @@ a.btn-ivi, .btn-ivi {
   border: 1px solid #d0b894 !important;   /* suptilni obrub */
   font-size: 0.85rem !important;          /* manji font */
   transition: all 0.25s ease !important;
-  min-width: 160px;                       /* uži gumb */
+                       /* uži gumb */
   text-align: center;
   margin-top: 32px; 
 }

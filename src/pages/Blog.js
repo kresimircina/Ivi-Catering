@@ -7,6 +7,7 @@ import "./Blog.css"
 import ScrollToTop from '../components/ScrollToTop';
 import BlogPost from '../components/BlogPost';
 import SwiperComponent from '../components/SwiperComponent';
+import { Helmet } from 'react-helmet-async';
 
 //const BASE_URL = process.env.REACT_APP_API_URL;
 
@@ -88,6 +89,9 @@ const Blog = () => {
 
     return (
     <>
+      <Helmet>
+        <title>Blog</title>
+      </Helmet>
       {loading && <Loader />}
       <div className="blog-page">
         <div className="container">

@@ -2,14 +2,17 @@ import { useState, useEffect } from "react"
 import { Link } from 'react-router-dom';
 import Loader from "../components/Loader";
 import HeroSection from "../components/HeroSection";
+import { useParams } from 'react-router-dom';
 
 import "./Blog.css"
 
 import Yoast from './../components/Yoast';
+
 //const BASE_URL = process.env.REACT_APP_API_URL;
 
 const PoslovniEventi = () => {
- 
+
+    const {slug} = useParams();
     const [posts, setPosts] = useState([]);
     const [loading,setLoading] = useState(false);
     const [page, setPage] = useState(1);
@@ -26,7 +29,7 @@ const PoslovniEventi = () => {
                 })
                 .finally(() => setLoading (false));
 
-        }, []
+        }, [slug]
     );
 
     
@@ -50,7 +53,7 @@ const PoslovniEventi = () => {
               return (
                 <div key={post.id} className="col-md-4 mb-4 blog-post">
                   {image && (
-                    <Link to={'/blog/' + post.slug}>
+                    <Link to={'/usluga/' + post.slug}>
                   <img
                       src={image}
                       className="mb-3"
@@ -58,7 +61,7 @@ const PoslovniEventi = () => {
                     />
                     </Link>
                   )}
-                  <Link to={'/blog/' + post.slug}>
+                  <Link to={'/usluga/' + post.slug}>
                     <h2>{post.title.rendered}</h2>
                   </Link>
                   <div

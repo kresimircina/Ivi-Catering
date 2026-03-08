@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from 'react-router-dom';
 
-import Yoast from './../components/Yoast';
+import { Helmet } from "react-helmet-async";
 
 //const BASE_URL = process.env.REACT_APP_API_URL;
 
@@ -9,6 +9,7 @@ const Vjencanja = () => {
  
     const {slug} = useParams();
     const [page, setPage] = useState(null);
+    
 
         useEffect(() => {
             const fetchPage = async() => {
@@ -19,6 +20,7 @@ const Vjencanja = () => {
                     }
                     const data = await response.json();
                     setPage(data[0]);
+                    
                 } catch(err) {
                 console.log(err.message);
                 
@@ -33,7 +35,10 @@ const Vjencanja = () => {
 
     return (
         <>
-            <Yoast yoastHeadJson={page.yoast_head_json} />
+            <Helmet>
+                <title>Vjenčanja</title>
+            </Helmet>
+            
             <div dangerouslySetInnerHTML={{ __html:page.content.rendered }}></div>
         </>
     
