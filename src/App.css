@@ -94,7 +94,7 @@ a {
 }
 
  
-.home-2-products .btn{
+/* .home-2-products .btn{
     background-color: #ffffff;
     color: #141615;
     font-size: 12px;
@@ -117,7 +117,7 @@ a {
     display: inline-block;
     margin-right: 10px;
     margin-left: -34px;
-}
+} */
 
 .max-466 {
   max-width: 466px;
@@ -174,7 +174,7 @@ h3 {
     min-height: 180px;
 }
 
-.footer-top {
+/* .footer-top {
     background-color: #404243;
     color: #fff;
     padding: 40px 0;
@@ -188,7 +188,7 @@ h3 {
     font-size: 14px;
     line-height: 1;
     padding: 20px;
-}
+} */
 
 
 /*ispod je css za footer sa originalnog projekta sa edukacije*/
@@ -352,31 +352,46 @@ footer a {
     
 } */
 
-/* Normalno stanje gumba */
-a.btn-ivi, .btn-ivi {
+/* 1. Poništi sve pozadine i obrube s vanjskih WordPress spremnika */
+div.btn-ivi, 
+div.wp-block-buttons.btn-ivi,
+div.wp-block-button.btn-ivi {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* 2. Stiliziraj isključivo STVARNI GUMB (link) unutar tog bloka */
+.btn-ivi .wp-block-button__link {
   display: inline-block !important;
-  background-color: #e5d2b5 !important;   /* svjetlija zlatna/bež */
-  color: #333333 !important;            /* tamnosiva slova */
-  padding: 5px 15px !important;           /* malo niži, malo uži */
+  background-color: #e5d2b5 !important;   /* Svijetla bež pozadina */
+  color: #333333 !important;              /* Tamnosiva slova */
+  padding: 12px 30px !important;          /* Veličina gumba */
   text-decoration: none !important;
   text-transform: uppercase !important;
   letter-spacing: 1.5px !important;
-  font-weight: 500 !important;            /* manje “bold” */
-  border-radius: 999px !important;        /* pilula oblik */
-  border: 1px solid #d0b894 !important;   /* suptilni obrub */
-  font-size: 0.85rem !important;          /* manji font */
+  font-weight: 500 !important;            
+  border-radius: 999px !important;        /* Pilula oblik */
+  border: none !important;                /* UKLONJEN obrub da nema duplih linija */
+  font-size: 0.85rem !important;          
   transition: all 0.25s ease !important;
-                       /* uži gumb */
-  text-align: center;
-  margin-top: 32px; 
+  min-width: 160px !important;                       
+  text-align: center !important;
+  box-shadow: none !important;            /* Čisto stanje bez sjene */
+  outline: none !important;
 }
 
-.btn-ivi:hover {
-  background-color: #cfb38c !important;   /* malo tamnija na hover */
-  color: #111111 !important;              /* malo tamnije slovo */
-  transform: translateY(-1px);            /* manji pomak */
-  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+/* 3. Hover efekt za gumb */
+.btn-ivi .wp-block-button__link:hover {
+  background-color: #cfb38c !important;   /* Tamnija bež na hover */
+  color: #111111 !important;              
+  transform: translateY(-1px) !important;            
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12) !important;
 }
+
+
 
 /* Glavni kontakt gumb na dnu */
 .btn-contact-main {
