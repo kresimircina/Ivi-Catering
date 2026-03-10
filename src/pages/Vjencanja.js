@@ -36,7 +36,7 @@ const Vjencanja = () => {
     return (
         <>
             <Helmet>
-                <title>Vjenčanja</title>
+                <title>{page.title.rendered}</title>
             </Helmet>
             
             <div dangerouslySetInnerHTML={{ __html:page.content.rendered }}></div>

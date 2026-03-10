@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import "./kontakt.css"
-import { faInstagram, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faWhatsapp, faFacebook } from "@fortawesome/free-brands-svg-icons";
+
 
 import Yoast from './../components/Yoast';
 
@@ -24,6 +25,7 @@ const Kontakt = () => {
       .then(
         () => {
           console.log('SUCCESS!');
+          setISSent(true); // Dodano da se button stvarno ažurira nakon slanja
         },
         (error) => {
           console.log('FAILED...', error.text);
@@ -48,21 +50,26 @@ const Kontakt = () => {
               <p>Say something to start a live chat!</p>
             </div>
             <div className="contact-info">
-              <a href="">
-                <FontAwesomeIcon icon={faPhone} className="me-3" /> +1012 3456 789{" "}
+              {/* OVO JE TELEFONSKI LINK */}
+              <a href="tel:+385912345678" style={{ textDecoration: 'none' }}>
+                <FontAwesomeIcon icon={faPhone} className="me-3" /> +385 91 234 5678
+              </a>
+              {/* OVO JE WHATSAPP LINK */}
+              <a href="https://wa.me/385912345678" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+                <FontAwesomeIcon icon={faWhatsapp} className="me-3" style={{ color: '#25D366', fontSize: '1.2em' }} /> Pošaljite nam WhatsApp poruku
               </a>
               <a href="">
                 <FontAwesomeIcon icon={faEnvelope} className="me-3" /> demo@gmail.com{" "}
               </a>
               <a href="">
-                <FontAwesomeIcon icon={faLocationDot} /> 132 Dartmouth Street Boston, Massachusetts 02156
+                 <FontAwesomeIcon icon={faLocationDot} className="me-2" size="2x" /> 132 Dartmouth Street Boston, Massachusetts 02156
                 United States{" "}
               </a>
             </div>
             <div className="socials">
-              <a href="www.x.com"><FontAwesomeIcon icon={faXTwitter} /></a>
+              <a href="www.facebook.com"><FontAwesomeIcon icon={faFacebook} /></a>
               <a href="www.instagram.com"><FontAwesomeIcon icon={faInstagram} /></a>
-              <a href="www.linkedin.com"><FontAwesomeIcon icon={faLinkedin} /></a>
+             
             </div>
             
               
