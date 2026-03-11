@@ -51,7 +51,7 @@ const Privevent = () => {
               return (
                 <div key={post.id} className="col-md-4 mb-4 blog-post">
                   {image && (
-                    <Link to={'/blog/' + post.slug}>
+                    <Link to={'/usluga/' + post.slug}>
                   <img
                       src={image}
                       className="mb-3"
@@ -59,7 +59,7 @@ const Privevent = () => {
                     />
                     </Link>
                   )}
-                  <Link to={'/blog/' + post.slug}>
+                  <Link to={'/usluga/' + post.slug}>
                     <h2>{post.title.rendered}</h2>
                   </Link>
                   <div

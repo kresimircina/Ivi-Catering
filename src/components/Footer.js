@@ -79,11 +79,11 @@ const Footer = () => {
                     <h4>Kontaktirajte nas</h4>
                     <ul className="footer-contact">
                       <li>
-                        <div className="data">
-                          {page.acf.adresa ? page.acf.adresa : "Nema adrese"} 
+                        <div className="data d-flex">
                             <a href="https://maps.google.com/?q=Tvoja+Adresa+123" target="_blank" rel="noreferrer">
                               <FontAwesomeIcon icon={faLocationDot} className="me-2" size="2x" /> 
                             </a>
+                            {page.acf.adresa ? page.acf.adresa : "Nema adrese"}
                         </div>
                        
                       </li>
