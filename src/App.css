@@ -395,19 +395,24 @@ div.wp-block-button.btn-ivi {
 
 /* Glavni kontakt gumb na dnu */
 .btn-contact-main {
-    background-color: #333;
-    color: white;
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: 0.3s;
-    display: inline-block;
+  padding: 15px 40px;
+  border-radius: 999px; /* Pilula oblik */
+  background-color: #e5d2b5;
+  color: #333333;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  align-self: flex-start; /* Na lijevoj strani */
+  cursor: pointer;
 }
 
 .btn-contact-main:hover {
-    background-color: #bc9c6a;
-    color: white;
+  background-color: #676969;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 /* Footer - tvoj brend look */
 footer {
