@@ -71,8 +71,10 @@ const Kontakt = () => {
           </a>
           
           <div style={{ display: 'flex', alignItems: 'flex-start', color: '#333', fontWeight: 500 }}>
-            <FontAwesomeIcon icon={faLocationDot} className="me-3 mt-1" style={{ color: '#a38558' }} /> 
-            <span>132 Dartmouth Street<br/>Boston, MA 02156</span>
+            <a href="https://maps.google.com/?q=Tvoja+Adresa+123"target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faLocationDot} className="me-3 mt-1" style={{ color: '#a38558' }} /> 
+              <span>132 Dartmouth Street<br/>Boston, MA 02156</span>
+            </a>
           </div>
         </div>
 

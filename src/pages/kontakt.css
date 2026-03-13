@@ -68,14 +68,19 @@
   font-size: 1.1rem;
 }
 
-.contact-info a:hover {
+ .contact-info a:hover {
   color: #2d5a2d !important;
-}
+} 
 
 /* Ikone unutar kontakt infa - zlatna/tamna boja */
 .contact-info svg {
   color: #a38558; /* Zlatna */
   font-size: 1.3rem;
+}
+
+.contact-info svg:hover {
+  color: #676969;
+  transform: translateY(-4px);
 }
 
 .socials {
