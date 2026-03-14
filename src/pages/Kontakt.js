@@ -13,6 +13,7 @@ import Yoast from './../components/Yoast';
 const Kontakt = () => {
 
   const form = useRef();
+ 
   const [isSent, setISSent] = useState (false);
 
   const sendEmail = (e) => {
@@ -58,22 +59,22 @@ const Kontakt = () => {
         </div>
         
         <div className="contact-info">
-          <a href="tel:+385912345678">
-            <FontAwesomeIcon icon={faPhone} className="me-3" /> +385 91 234 5678
+          <a href="tel:+385992050990">
+            <FontAwesomeIcon icon={faPhone} className="me-3" /> +385 99 205 0990
           </a>
           
-          <a href="https://wa.me/385912345678" target="_blank" rel="noreferrer">
+          <a href="https://wa.me/385911611999" target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={faWhatsapp} className="me-3" style={{ color: '#25D366' }} /> Pošaljite nam poruku
           </a>
 
-          <a href="mailto:demo@gmail.com">
-            <FontAwesomeIcon icon={faEnvelope} className="me-3" /> demo@gmail.com
+          <a href="mailto:info@cateringivi.com">
+            <FontAwesomeIcon icon={faEnvelope} className="me-3" /> info@cateringivi.com
           </a>
           
           <div style={{ display: 'flex', alignItems: 'flex-start', color: '#333', fontWeight: 500 }}>
             <a href="https://maps.google.com/?q=Tvoja+Adresa+123"target="_blank" rel="noreferrer">
               <FontAwesomeIcon icon={faLocationDot} className="me-3 mt-1" style={{ color: '#a38558' }} /> 
-              <span>132 Dartmouth Street<br/>Boston, MA 02156</span>
+              <span>Berak, Orolička 25</span>
             </a>
           </div>
         </div>

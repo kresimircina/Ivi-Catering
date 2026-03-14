@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import logoImage from "../img/Ivi-logo2.svg"; // Importaj sliku direktno
-//import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Nav = () => {
 
-  //const location = useLocation();
-  //const[name, setName] = useState(null); korisiti se samo za prikaz admin kartice, trenutno nema funkcionalnosti, ali bi se moglo koristiti u budućnosti
+  const location = useLocation();
+  const[name, setName] = useState(null); //korisiti se samo za prikaz admin kartice, trenutno nema funkcionalnosti, ali bi se moglo koristiti u budućnosti
 
-   /* useEffect( () => {
+    useEffect( () => {
       const user = localStorage.getItem("username");
       if(user) setName(user);
     }, []
@@ -26,20 +26,20 @@ const Nav = () => {
   const logOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
-    //window.location.reload();
+    window.location.reload();
     setName(null);
-  } */ 
+  } 
 
   return (
     
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          <img src={logoImage} alt="logo" height="70"/>
+          <img src={logoImage} alt="logo" className="nav-logo" height="70"/>
         </Link>
     
           <button
-           className="navbar-toggler" 
+           className="navbar-toggler custom-toggler" 
            type="button" 
            data-bs-toggle="collapse"
            data-bs-target="#mainNavbar" 
@@ -51,7 +51,7 @@ const Nav = () => {
 
         <div className="collapse navbar-collapse" id="mainNavbar">
       
-          <ul className="navbar-nav mx-auto align-items-center">
+          <ul className="navbar-nav ms-auto gap-3">
             
             
             <li className="nav-item dropdown">

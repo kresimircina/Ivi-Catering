@@ -30,22 +30,23 @@ const Footer = () => {
       fetchPage();
     }, []);
   
-    if(!page) return <p>Učitavanje...</p>;
+    if(!page) return <p style={{textAlign: "center", padding:"20px"}}>Učitavanje...</p>;
 
   if(location.pathname === "/signin") {
-    return;
+    return null; //React traži da se vrati null, a ne prazan return
   }
   
   return (
     <>
-      <footer>
+      <footer className="footer-area">
         <div className="container">
           <div className="row">
-            <div className="col-md-6">
+            {/*lijeva strana - linkovi */}
+            <div className="col-md-6 mb-4 mb-md-0">
               <div className="row">
-                <div className="col-md-3 mx-auto">
-                  <h4>Usluge</h4>
-                    <ul>
+                <div className="col-md-6 mb-4 mb-md-0"> 
+                  <h4 className="footer-title">Usluge</h4>
+                    <ul className="footer-links">
                       <li>
                         <Link to="/usluga/vjencanja">Vjenčanja</ Link>
                       </li>
@@ -56,73 +57,82 @@ const Footer = () => {
                         <Link to="/usluga/poslovni-eventi">Poslovni eventi</ Link>
                       </li>
                     
-                    </ul>
-                  
+                    </ul>  
                 </div>
-                <div className="col-md-3 mx-auto">
-                  <h4>Informacije</h4>
-                    <ul>
+                <div className="col-md-6">
+                  <h4 className="footer-title">Informacije</h4>
+                    <ul className="footer-links">
                       <li>
-                        <Link to="/o-nama">O nama</ Link>
+                        <Link to="/onama">O nama</Link>
                       </li>
                       <li>
-                        <Link to="/kontakt">Kontakt</ Link>
+                        <Link to="/kontakt">Kontakt</Link>
                       </li>
-                      
                     </ul>
-
                 </div>
               </div>
             </div> 
 
+           {/* DESNA STRANA - KONTAKT INFO */}
             <div className="col-md-6">
-                    <h4>Kontaktirajte nas</h4>
+                    <h4 className="footer-title">Kontaktirajte nas</h4>
                     <ul className="footer-contact">
                       <li>
-                        <div className="data d-flex">
-                            <a href="https://maps.google.com/?q=Tvoja+Adresa+123" target="_blank" rel="noreferrer">
-                              <FontAwesomeIcon icon={faLocationDot} className="me-2" size="2x" /> 
+                        <div className="d-flex align-items-start">
+                            <a href="https://maps.google.com/?q=132+Dartmouth+Street+Boston" target="_blank" rel="noreferrer" className="d-flex align-items center me-3 mt-1 contact-link text-gold ">
+                              <FontAwesomeIcon icon={faLocationDot} size="2x" /> 
+                              <span style={{color: "#4a5d4a"}}>
+                                {page.acf.adresa ? page.acf.adresa : "Nema adrese"}
+                              </span>
                             </a>
-                            {page.acf.adresa ? page.acf.adresa : "Nema adrese"}
+                            
                         </div>
-                       
                       </li>
-                      <li>
-                        <a href="tel:+385912345678">
-                          <FontAwesomeIcon icon={faPhone} className="me-2" size="2x" /> +385 91 234 5678
+                      
+                      <li className="mt-3">
+                        <a href="tel:+385992050990" className="d-flex align-items-center contact-link">
+                          <FontAwesomeIcon icon={faPhone} className="me-3 text-gold" size="2x" /> 
+                          <span>+385 99 205 0990</span>
                         </a>
                       </li>
-                      <li>
-                        <a href="mailto:info@ivicatering.hr">
-                          <FontAwesomeIcon icon={faEnvelope} className="me-2" size="2x" /> info@ivicatering.hr
+                      
+                      <li className="mt-3">
+                        <a href="mailto:info@cateringivi.com" className="d-flex align-items-center contact-link">
+                          <FontAwesomeIcon icon={faEnvelope} className="me-3 text-gold" size="2x" /> 
+                          <span>info@</span>
                         </a>
                       </li>
-                      <li>
-                        <a href="https://wa.me/385912345678" target="_blank" rel="noreferrer" className="whatsapp-link">
-                          <FontAwesomeIcon icon={faWhatsapp} className="me-2" size="2x"/> Pošaljite WhatsApp poruku
+                      
+                      <li className="mt-3">
+                        <a href="https://wa.me/385911611999" target="_blank" rel="noreferrer" className="d-flex align-items-center whatsapp-link">
+                          <FontAwesomeIcon icon={faWhatsapp} className="me-3" style={{color: "#25D366"}} size="2x"/> 
+                          <span>Pošaljite WhatsApp poruku</span>
                         </a>
                       </li>
                     </ul>
 
-                    <h4 className="mt-4">Pratite nas</h4>
-                    <div className="footer-socials d-flex gap-4 mt-4">
-                      <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+                    <h4 className="footer-title mt-5">Pratite nas</h4>
+                    <div className="footer-socials d-flex gap-3 mt-3">
+                      <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="social-icon">
                         <FontAwesomeIcon icon={faFacebook} size="2x" />
                       </a>
-                      <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+                      <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="social-icon">
                         <FontAwesomeIcon icon={faInstagram} size="2x" />
                       </a>
                     </div>
             </div>
           </div>
-            {/* Donji red s TOP gumbom skroz desno */}
-          <div className="row mt-5">
-            <div className="col-12 d-flex justify-content-end">
-              <button className="btn btn-danger btn-top" onClick={ScrollToTop}>TOP</button>
+          
+          {/* Donji red s TOP gumbom skroz desno */}
+          <div className="row mt-5 pt-4 border-top">
+            <div className="col-12 d-flex justify-content-between align-items-center">
+              <p style={{margin: 0, color: "#666", fontSize: "0.9rem"}}>© 2026 Ivi Catering. Sva prava pridržana.</p>
+              <button className="btn-top" onClick={ScrollToTop} title="Povratak na vrh">
+                TOP ↑
+              </button>
             </div>
           </div>
         </div>
-        
       </footer>
     </>
   );
