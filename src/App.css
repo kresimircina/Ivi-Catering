@@ -119,30 +119,30 @@ a {
     margin-left: -34px;
 } */
 
-.max-466 {
+/*.max-466 {
   max-width: 466px;
-  margin: 0 auto;           /* centrira blok */
-  padding: 30px 20px;       /* unutarnji razmak */
-  background: #f2e1d1;      /* svijetla pozadina */
-  border-radius: 12px;      /* zaobljeni rubovi */
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* sjaj */
-  line-height: 1.7;         /* veći razmak između redaka */
-  font-size: 1.2rem;       /* malo veći font */
+  margin: 0 auto;           /* centrira blok 
+  padding: 30px 20px;       /* unutarnji razmak 
+  background: #f2e1d1;      /* svijetla pozadina 
+  border-radius: 12px;      /* zaobljeni rubovi 
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* sjaj 
+  line-height: 1.7;         /* veći razmak između redaka 
+  font-size: 1.2rem;       /* malo veći font 
   display: flexbox;
   align-content: center;
 }
 
 .max-466 h2 {
   font-size: 2rem;
-  color: #2d5a2d;           /* tamnozeleni naslov */
+  color: #2d5a2d;           /* tamnozeleni naslov 
   margin-bottom: 20px;
   text-align: center;
 }
 
 .max-466 p {
   margin-bottom: 18px;
-  color: #4a5d4a;           /* tamnosivi tekst */
-}
+  color: #4a5d4a;           /* tamnosivi tekst 
+}/*
 
 h3 {
     font-size: 20px;
@@ -217,6 +217,9 @@ footer a {
     justify-content: center; /* Centriranje na desktopu */
 }
 
+.navbar-nav .nav-item.dropdown {
+  position: relative;
+}
 
 .navbar-brand img {
     
@@ -242,6 +245,32 @@ footer a {
     color: #444;
 }
 
+/* Stilizacija Dropdown izbornika u navigaciji */
+.custom-dropdown {
+  background-color: #f8f9f8;
+  border: 1px solid #e5d2b5;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  padding: 10px 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px; /* Minimalna širina da tekst ne bude stisnut */
+  margin-top: 10px; /* Mali razmak od navigacije */
+
+}
+
+.custom-dropdown .dropdown-item {
+  color: #4a5d4a;
+  font-weight: 500;
+  padding: 8px 20px;
+  transition: all 0.2s ease;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #e5d2b5;
+  color: #2d5a2d;
+}
 
 /* Na mobitelu (ispod 992px širine) linkovi idu desno */
 @media (max-width: 991px) {
@@ -263,6 +292,91 @@ footer a {
     }
 }
 
+/* =========================================
+   USLUGE GRID (ZIK-ZAK NASLOVNA KARTICE)
+   ========================================= */
+
+/* Ograničavamo širinu i radimo 'karticu' od svakog retka usluge */
+.wp-block-columns {
+  align-items: center !important; 
+  margin: 0 auto 80px auto !important; /* Centrira blok i dodaje donji razmak */
+  max-width: 1200px !important; /* Sprečava širenje od ruba do ruba ekrana */
+  gap: 40px; 
+  background-color: #f8f9f8; /* Svijetla pozadina kartice */
+  border-radius: 12px; /* Zaobljeni rubovi cijele kartice */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06); /* Elegantna sjenka oko cijelog bloka */
+  overflow: hidden; /* Ako slika ispadne, ovo je reže da prati zaobljene rubove */
+  padding: 0 !important; /* Uklanjamo padding s kontejnera da slika ide do ruba svoje strane */
+}
+
+/* Stil za same stupce unutar kartice */
+.wp-block-columns .wp-block-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+  padding: 40px; /* Dodajemo razmak unutar tekstualnog dijela */
+}
+
+/* Stil za blok sa slikom */
+.wp-block-columns .wp-block-image {
+  margin: 0 !important;
+  width: 100%;
+  height: 100%;
+}
+
+.wp-block-columns .wp-block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Slika ispunjava svoju polovicu kartice */
+  border-radius: 0; /* Uklanjamo border radius sa slike jer ga sada ima cijela kartica */
+  min-height: 400px; /* Minimalna visina da ne bude preplitko */
+  box-shadow: none; /* Uklanjamo sjenu sa slike jer je ima cijela kartica */
+  transition: transform 0.6s ease;
+}
+
+/* Podešavanje naslova (Vjenčanja, itd.) */
+.wp-block-columns h2 {
+  color: #2d5a2d; 
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.wp-block-columns p {
+  color: #4a5d4a;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.wp-block-columns .wp-block-buttons {
+  justify-content: center !important;
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+}
+
+/* Mobilni pregled */
+@media (max-width: 768px) {
+  .wp-block-columns {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0;
+    margin-bottom: 60px !important;
+  }
+  .wp-block-columns .wp-block-column {
+    padding: 30px 20px;
+  }
+  .wp-block-columns .wp-block-image img {
+    min-height: 250px;
+  }
+}
+
+
 /* Zajednički stil za sekcije usluga */
 .section-vjencanja, .section-privevent-, .section-poslovni-eventi {
     padding: 100px 0;
@@ -270,68 +384,90 @@ footer a {
     border-bottom: 1px solid #f0f0f0;
 }
 
-.wp-block-cover {
-    width: 100vw;
-    max-width: none;
-    height: 75vh; /* Visina sekcije - */
-    margin-bottom: 20px;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    transition: transform 0.5s ease;
-   
-}
 
-/* Efekt zumiranja slike kad se prijeđe mišem */
-.wp-block-cover:hover {
-    transform: scale(1.01);
-}
 
-/* Stiliziranje teksta unutar Cover bloka */
-.wp-block-cover h2 {
-    font-size: 3.5rem;
-    font-family: "Questrial", serif; 
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-}
-
-.wp-block-cover p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Ako želiš da cijeli blok vizualno reagira na hover */
-.wp-block-cover__inner-container {
-    transition: background-color 0.3s ease;
-}
-
-.wp-block-cover:hover .wp-block-cover__inner-container {
-    background-color: rgba(0, 0, 0, 0.2); /* Lagano zatamnjenje na hover */
-}
-
-/* Osiguraj da kontejner unutar covera centrira sadržaj */
-.wp-block-cover__inner-container {
-    width: 100%;
-    max-width: 1100px; /* Ovdje definiraš širinu teksta unutar slike */
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
+/* Mobilni pregled - Slika postaje pozadina, tekst ide preko nje */
 @media (max-width: 768px) {
-     /* Ako imaš flex container za sliku+tekst */
-   /* Ili ako su u gridu */
-  .usluge-grid {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto 1fr !important;
+  
+  /* Cijela kartica usluge postaje kontejner za sliku u pozadini */
+  .wp-block-columns {
+    display: block !important; /* Mijenjamo iz flex u block */
+    position: relative !important;
+    margin-bottom: 40px !important;
+    min-height: 450px; /* Definira koliko će visoka biti ta "kartica" */
+    overflow: hidden;
+    border-radius: 12px;
   }
 
-   /* Direktno za Gutenberg blokove */
-  .wp-block-group .max-466 {
-    order: -1; /* Tekst ide prvi */
+  /* 1. STUPAC SA SLIKOM -> Šaljemo ga u pozadinu */
+  .wp-block-columns .wp-block-column:has(.wp-block-image) {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1; /* Slika je na dnu */
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .wp-block-columns .wp-block-image,
+  .wp-block-columns .wp-block-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Slika ispunjava cijeli blok */
+    margin: 0 !important;
+  }
+
+  /* Dodajemo tamni sloj (overlay) preko slike da se tekst bolje vidi */
+  .wp-block-columns .wp-block-column:has(.wp-block-image)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Zatamnjenje slike 65% */
+    z-index: 2; /* Iznad slike, ali ispod teksta */
+  }
+
+  /* 2. STUPAC S TEKSTOM I GUMBOM -> Stavljamo ga preko slike */
+  .wp-block-columns .wp-block-column:not(:has(.wp-block-image)) {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 3; /* Tekst je na samom vrhu */
+    
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px !important;
+  }
+
+  /* Bijeli tekst kako bi bio čitljiv na tamnoj pozadini (slici) */
+  .wp-block-columns h2 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* Dodatna čitljivost */
+    font-size: 2rem;
+  }
+
+  .wp-block-columns p {
+    color: #f0f0f0 !important;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+  }
+
+  /* Prilagodba gumba da ostane vidljiv i na sredini */
+  .wp-block-columns .wp-block-buttons {
+    margin-top: 10px;
+    justify-content: center !important;
   }
 }
+
 
 
 /* Stil za gumbe (Saznajte više) */
