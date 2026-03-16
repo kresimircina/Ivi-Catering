@@ -468,6 +468,78 @@ footer a {
   }
 }
 
+/* =========================================
+   USLUGE - FEATURE KARTICE (npr. Vjenčanja)
+   ========================================= */
+
+/* Glavni kontejner stupaca kojem smo dali klasu */
+.usluge-feature-grid {
+  display: flex !important;
+  gap: 40px !important;
+  max-width: 1200px !important;
+  margin: 60px auto !important;
+  background: transparent !important; /* Poništavamo pozadinu cijelog bloka */
+  box-shadow: none !important;
+}
+
+/* Pojedinačna kartica (svaki stupac postaje svoja kartica) */
+.usluge-feature-grid .wp-block-column {
+  background-color: #f8f9f8; /* Svijetla bež/bijela boja kartice */
+  padding: 50px 40px !important;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  text-align: center;
+}
+
+.usluge-feature-grid .wp-block-column:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* Dodavanje malog ukrasa iznad naslova (zlatna linija / krugić) */
+.usluge-feature-grid .wp-block-column::before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #a38558; /* Tvoja zlatna boja */
+  margin: 0 auto 25px auto;
+  border-radius: 5px;
+}
+
+/* Stiliziranje naslova u kartici */
+.usluge-feature-grid h2, 
+.usluge-feature-grid h3 {
+  color: #2d5a2d !important; /* Tamno zelena */
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Stiliziranje teksta u kartici */
+.usluge-feature-grid p {
+  color: #4a5d4a;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Responzivnost za mobitele - da kartice idu jedna ispod druge */
+@media (max-width: 768px) {
+  .usluge-feature-grid {
+    flex-direction: column !important;
+    gap: 30px !important;
+    padding: 0 15px;
+  }
+  
+  .usluge-feature-grid .wp-block-column {
+    padding: 40px 25px !important;
+  }
+}
+
 
 
 /* Stil za gumbe (Saznajte više) */
@@ -527,10 +599,17 @@ div.wp-block-button.btn-ivi {
   box-shadow: 0 3px 10px rgba(0,0,0,0.12) !important;
 }
 
+.wp-block-list {
+  list-style-type: none;
+  padding-top: 20px !important;
+  padding-left: 200px !important;
+  font-size: 1.1rem !important;
+  
+}
 
 
 /* Glavni kontakt gumb na dnu */
-.btn-contact-main {
+.btn-contact-main{
   padding: 15px 40px;
   border-radius: 999px; /* Pilula oblik */
   background-color: #e5d2b5;
@@ -540,8 +619,10 @@ div.wp-block-button.btn-ivi {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   transition: all 0.3s ease;
-  align-self: flex-start; /* Na lijevoj strani */
+ 
   cursor: pointer;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-contact-main:hover {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 //const BASE_URL = process.env.REACT_APP_API_URL;
@@ -40,6 +40,25 @@ const Vjencanja = () => {
             </Helmet>
             
             <div dangerouslySetInnerHTML={{ __html:page.content.rendered }}></div>
+            <div className="container usluge-feature-grid d-flex gap-3 align-items-center justify-content-center">
+                <div className="row">
+                    <div className="col-md-6 gap-3 ps-4 max-466">
+                        <h3 className="mb-3">Kontaktirajte nas</h3>
+                        <p className="mb-4">Rado ćemo saslušati vaše ideje i kreirati ponudu koja savršeno odgovara vašim potrebama. 
+                            </p>
+                    </div>
+
+
+                    <div className="col-md-6 d-flex flex-column align-items-center justify-content-center">
+                        <div className="text-center mb-2">
+                             <Link to="/kontakt" className="btn-contact-main">Kontaktirajte nas</Link>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            
         </>
     
   );
