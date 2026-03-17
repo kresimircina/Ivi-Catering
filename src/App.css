@@ -24,9 +24,11 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  h1 {
-    backdrop-filter: blur(20px);
-  }
+  margin-bottom: 40px;
+}
+
+.hero_section h1 {
+  backdrop-filter: blur(20px);
 }
 
 
@@ -360,26 +362,11 @@ footer a {
   margin-top: 15px;
 }
 
-/* Mobilni pregled */
-@media (max-width: 768px) {
-  .wp-block-columns {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0;
-    margin-bottom: 60px !important;
-  }
-  .wp-block-columns .wp-block-column {
-    padding: 30px 20px;
-  }
-  .wp-block-columns .wp-block-image img {
-    min-height: 250px;
-  }
-}
 
 
 /* Zajednički stil za sekcije usluga */
 .section-vjencanja, .section-privevent-, .section-poslovni-eventi {
-    padding: 100px 0;
+    padding: 6px 0;
     text-align: center;
     border-bottom: 1px solid #f0f0f0;
 }
@@ -390,7 +377,7 @@ footer a {
 @media (max-width: 768px) {
   
   /* Cijela kartica usluge postaje kontejner za sliku u pozadini */
-  .wp-block-columns {
+  .usluge-feature-grid .wp-block-columns {
     display: block !important; /* Mijenjamo iz flex u block */
     position: relative !important;
     margin-bottom: 40px !important;
@@ -400,7 +387,7 @@ footer a {
   }
 
   /* 1. STUPAC SA SLIKOM -> Šaljemo ga u pozadinu */
-  .wp-block-columns .wp-block-column:has(.wp-block-image) {
+  .usluge-feature-grid .wp-block-columns .wp-block-column:has(.wp-block-image) {
     position: absolute !important;
     top: 0;
     left: 0;
@@ -411,8 +398,8 @@ footer a {
     margin: 0 !important;
   }
 
-  .wp-block-columns .wp-block-image,
-  .wp-block-columns .wp-block-image img {
+  .usluge-feature-grid .wp-block-columns .wp-block-image,
+  .usluge-feature-grid .wp-block-columns .wp-block-image img {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important; /* Slika ispunjava cijeli blok */
@@ -420,7 +407,7 @@ footer a {
   }
 
   /* Dodajemo tamni sloj (overlay) preko slike da se tekst bolje vidi */
-  .wp-block-columns .wp-block-column:has(.wp-block-image)::after {
+  .usluge-feature-grid .wp-block-columns .wp-block-column:has(.wp-block-image)::after {
     content: '';
     position: absolute;
     top: 0;
@@ -432,7 +419,7 @@ footer a {
   }
 
   /* 2. STUPAC S TEKSTOM I GUMBOM -> Stavljamo ga preko slike */
-  .wp-block-columns .wp-block-column:not(:has(.wp-block-image)) {
+  .usluge-feature-grid .wp-block-columns .wp-block-column:not(:has(.wp-block-image)) {
     position: absolute !important;
     top: 0;
     left: 0;
@@ -448,13 +435,13 @@ footer a {
   }
 
   /* Bijeli tekst kako bi bio čitljiv na tamnoj pozadini (slici) */
-  .wp-block-columns h2 {
+  .usluge-feature-grid .wp-block-columns h2 {
     color: #ffffff !important;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* Dodatna čitljivost */
     font-size: 2rem;
   }
 
-  .wp-block-columns p {
+  .usluge-feature-grid .wp-block-columns p {
     color: #f0f0f0 !important;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     font-size: 1.05rem;
@@ -469,27 +456,80 @@ footer a {
 }
 
 /* =========================================
+   PODEŠAVANJE MARGIN/PADDING za Gutenberg blokove
+   da budu u ravnini s ostalim sadržajem
+   ========================================= */
+
+/* Hero/cover blokovi - uklanjamo prevelike margine */
+.wp-block-hero {
+  margin-top: 20px !important; /* Mali razmak od vrha */
+  margin-bottom: 40px !important; /* Standardni razmak do sljedećeg bloka */
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+/* Glavni sadržajni blokovi (tekstualni) */
+.wp-block-group,
+.wp-block-paragraph {
+  margin-top: 20px;
+  margin-bottom: 30px !important; /* Standardni razmak između odlomaka */
+}
+
+/* Stupci i grupe - osiguravamo da ne "iskoče" */
+.wp-block-columns,
+.wp-block-group > div {
+  margin-top: 0 !important;
+  margin-bottom: 60px !important;
+}
+
+/* Posebno za Vjenčanja feature kartice - da se uklapaju u tok */
+.usluge-feature-grid {
+  margin-top: 40px !important;
+  margin-bottom: 80px !important;
+}
+
+/* Hero slike na vrhu stranica usluga - da ne idu preblizu navigacije */
+.wp-block-cover-image,
+.wp-block-cover:first-child {
+  margin-top: 80px !important; /* Razmak od navigacije */
+}
+
+/* Glavni container stranice - centriramo sve sadržaj */
+.page-content,
+.entry-content {
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* =========================================
    USLUGE - FEATURE KARTICE (npr. Vjenčanja)
    ========================================= */
 
-/* Glavni kontejner stupaca kojem smo dali klasu */
+/* PREGAZI Bootstrap klase d-flex, align-items-center, justify-content-center */
+.usluge-feature-grid.d-flex {
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+}
 .usluge-feature-grid {
   display: flex !important;
+  flex-wrap: wrap !important; /* DOZVOLJAVA KARTICAMA DA PADNU U NOVI RED */
   gap: 40px !important;
   max-width: 1200px !important;
-  margin: 60px auto !important;
-  background: transparent !important; /* Poništavamo pozadinu cijelog bloka */
+  margin: 40px auto 80px auto !important;
+  background: transparent !important; 
   box-shadow: none !important;
 }
 
-/* Pojedinačna kartica (svaki stupac postaje svoja kartica) */
+/* Pojedinačna kartica (stupac) */
 .usluge-feature-grid .wp-block-column {
-  background-color: #f8f9f8; /* Svijetla bež/bijela boja kartice */
+  flex: 1 1 calc(33.333% - 40px) !important; /* Desktop: 3 kartice u redu. Ako ih je 2, raširit će se. */
+  min-width: 300px !important; /* Neće se stisnuti u ništa */
+  background-color: #f8f9f8 !important; /* Prisilna boja kartice */
   padding: 50px 40px !important;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
   text-align: center;
 }
 
@@ -509,38 +549,56 @@ footer a {
   border-radius: 5px;
 }
 
-/* Stiliziranje naslova u kartici */
+/* Stiliziranje naslova u kartici (Prisilne boje) */
 .usluge-feature-grid h2, 
 .usluge-feature-grid h3 {
-  color: #2d5a2d !important; /* Tamno zelena */
+  color: #2d5a2d !important; /* Tamno zelena bez obzira na sve */
+  text-shadow: none !important; /* Uklanjamo čudne sjene s mobitela */
   font-size: 1.8rem;
   margin-bottom: 20px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
 }
 
 /* Stiliziranje teksta u kartici */
 .usluge-feature-grid p {
-  color: #4a5d4a;
+  color: #4a5d4a !important; /* Jasna tamno siva/zelena boja teksta */
+  text-shadow: none !important; /* Uklanjamo sjene */
   font-size: 1.1rem;
   line-height: 1.8;
-  margin: 0;
 }
 
 /* Responzivnost za mobitele - da kartice idu jedna ispod druge */
 @media (max-width: 768px) {
   .usluge-feature-grid {
-    flex-direction: column !important;
-    gap: 30px !important;
-    padding: 0 15px;
+    flex-direction: column !important; /* Sve idu jedna ispod druge */
+    gap: 25px !important; 
+    padding: 0 15px !important;
   }
   
   .usluge-feature-grid .wp-block-column {
-    padding: 40px 25px !important;
+    flex: 1 1 100% !important; /* Kartica uzima 100% širine ekrana */
+    width: 100% !important; /* Prisiljavamo stupce na punu širinu */
+    padding: 40px 20px !important; /* Manji unutarnji razmak */
+    margin: 0 !important; /* Bez viška margina */
+    min-width: 100% !important;
+  }
+
+  .usluge-feature-grid .col-md-6 {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  /* DODATNO: Prisili sve Gutenberg kartice da se prikažu na mobilnom */
+  .wp-block-columns .wp-block-column {
+    flex-basis: 100% !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Osiguraj da se kartice ne skrivaju */
+  .wp-block-columns .wp-block-column:nth-child(n+2) {
+    display: block !important;
   }
 }
-
-
 
 /* Stil za gumbe (Saznajte više) */
 /* a.btn-ivi, .btn-ivi {
@@ -599,12 +657,102 @@ div.wp-block-button.btn-ivi {
   box-shadow: 0 3px 10px rgba(0,0,0,0.12) !important;
 }
 
+
+/* =========================================
+   POPRAVAK COVER BLOKOVA I LISTI (SLIKA S TEKSTOM)
+   ========================================= */
+
+/* 1. Uklanjanje onog ogromnog paddinga koji gura listu udesno */
+/* 2. Custom bullet ikone za catering liste (vjencanja, privatni eventi, poslovni eventi) */
+.entry-content ul,
+.page-content ul,
 .wp-block-list {
-  list-style-type: none;
-  padding-top: 20px !important;
-  padding-left: 200px !important;
-  font-size: 1.1rem !important;
-  
+  padding-left: 0 !important; /* Brisanje default paddinga */
+  list-style: none !important; /* Ukini obične točkice */
+  list-style-position: inside; /* Održava razmak */
+  text-align: left !important; /* Poravnanje teksta s lijeve strane */
+  margin: 0 auto; /* Centriraj listu, ali ne tekst */
+  display: inline-block; /* Omogućava centriranje parenta */
+}
+
+.entry-content ul li,
+.page-content ul li,
+.wp-block-list li {
+  position: relative;
+  padding-left: 2.3rem;
+  margin-bottom: 0.8rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+  text-align: left !important; /* Izričito poravnaj tekst lijevo */
+}
+
+.entry-content ul li::before,
+.page-content ul li::before,
+.wp-block-list li::before {
+  content: "\1F374"; /* 🍴 */
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-size: 1.2rem;
+  color: #a38558;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.entry-content ul li:hover,
+.page-content ul li:hover,
+.wp-block-list li:hover {
+  transform: translateX(6px);
+}
+
+.entry-content ul li:hover::before,
+.page-content ul li:hover::before,
+.wp-block-list li:hover::before {
+  color: #2d5a2d;
+  transform: translateX(2px);
+}
+
+/* 2. Prisilno centriranje sadržaja (tekst i liste) u Cover blokovima */
+.wp-block-cover__inner-container, 
+.wp-block-cover .wp-block-group__inner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* SVE unutar bloka ide na sredinu po horizontali */
+  text-align: center;  /* Tekst se centrira */
+  width: 100%;
+  max-width: 800px !important; /* Sprječava da tekst ide od ruba do ruba */
+  margin: 0 auto;
+}
+
+/* 3. Uređivanje izgleda same liste da bude pregledna i lijepa */
+.wp-block-cover .wp-block-list {
+  display: inline-block;
+  text-align: left; /* Tekst na listi je poravnat lijevo radi čitljivosti */
+  background: rgba(0, 0, 0, 0.4); /* Lagana tamna pozadina ispod same liste da se bolje čita */
+  padding: 20px 40px !important;
+  border-radius: 8px;
+  margin: 20px auto !important;
+}
+
+.wp-block-cover .wp-block-list li {
+  color: #ffffff; /* Bijela slova */
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+/* 4. Podešavanje naslova i običnog teksta u Cover bloku */
+.wp-block-cover h2 {
+  color: #333333 !important; /* Tamnija boja za bolju vidljivost */
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.8); /* Bijela sjena za kontrast */
+  margin-bottom: 20px;
+}
+
+.wp-block-cover p {
+  color: #555555 !important; /* Tamnija boja */
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
+  max-width: 600px;
+  margin: 0 auto 15px auto;
 }
 
 
@@ -749,6 +897,18 @@ div.wp-block-button.btn-ivi {
   transform: translateY(-2px);
 }
 
+/* Responzivni iframe za mapu */
+.map iframe {
+  max-width: 100%;
+  height: auto;
+  min-height: 300px;
+}
+
+/* Dodatni razmak za row na naslovnoj stranici */
+.row {
+  margin-bottom: 60px;
+}
+
 
 @media (min-width: 1200px) {
     .h1, h1 {
@@ -757,7 +917,71 @@ div.wp-block-button.btn-ivi {
     .h2 h2 {
         font-size: 3rem;
     }
+}
 
-    
+/* Responzivnost za mobilne uređaje */
+@media (max-width: 767px) {
+    body {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    h1, .h1 {
+        font-size: 2rem;
+    }
+
+    h2, .h2 {
+        font-size: 1.5rem;
+    }
+
+    .wp-block-columns h2 {
+        font-size: 1.8rem;
+    }
+
+    .wp-block-columns p {
+        font-size: 1rem;
+    }
+
+    .hero_section {
+        height: 40vh;
+    }
+
+    .navbar-brand img {
+        height: 50px;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        margin: 0 10px;
+    }
+
+    .footer-area {
+        padding: 40px 0 20px;
+    }
+
+    .footer-title {
+        font-size: 1.1rem;
+    }
+
+    .btn-contact-main {
+        padding: 12px 30px;
+        font-size: 0.8rem;
+    }
+
+    /* Poboljšanja za usluge-feature-grid na mobilnim */
+    .usluge-feature-grid .wp-block-column {
+        padding: 30px 20px !important;
+    }
+
+    .usluge-feature-grid .wp-block-column h2, 
+    .usluge-feature-grid .wp-block-column h3 {
+        font-size: 1.5rem;
+    }
+
+    .usluge-feature-grid .wp-block-column p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #000;
+    }
 } 
 

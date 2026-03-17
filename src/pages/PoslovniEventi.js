@@ -42,6 +42,7 @@ const PoslovniEventi = () => {
     return (
     <>
       <Yoast yoastHeadJson={page.yoast_head_json} />
+
       {loading && <Loader />}
       <div className="blog-page">
         <div className="container">
@@ -64,6 +65,11 @@ const PoslovniEventi = () => {
                   <Link to={'/usluga/' + post.slug}>
                     <h2>{post.title.rendered}</h2>
                   </Link>
+                    <HeroSection 
+                    stranica={page} 
+                    fallback="https://placehold.co/600x400" 
+                    size="full" 
+                    />
                   <div
                     dangerouslySetInnerHTML={{__html: post.excerpt.rendered }}
                   />

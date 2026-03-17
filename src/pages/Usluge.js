@@ -73,7 +73,7 @@ const Usluge = () => {
               return (
                 <div key={post.id} className="col-md-4 mb-4 blog-post">
                   {image && (
-                    <Link to={'/usluge/' + post.slug}>
+                    <Link to={'/usluga/' + post.slug}>
                   <img
                       src={image}
                       className="mb-3"

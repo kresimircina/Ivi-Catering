@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from "../components/Loader";
-
+import HeroSection from "../components/HeroSection";
 import Yoast from './../components/Yoast';
 
 import "./Blog.css"
@@ -62,6 +62,11 @@ const Privevent = () => {
                   <Link to={'/usluga/' + post.slug}>
                     <h2>{post.title.rendered}</h2>
                   </Link>
+                  <HeroSection 
+                    stranica={page} 
+                    fallback="https://placehold.co/600x400" 
+                    size="full" 
+                    />
                   <div
                     dangerouslySetInnerHTML={{__html: post.excerpt.rendered }}
                   />
