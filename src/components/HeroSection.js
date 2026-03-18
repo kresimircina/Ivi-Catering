@@ -6,13 +6,12 @@ const HeroSection = ({ stranica, fallback, size="full" }) => {
 
   return (
     <>
-      <div 
-      className="container-fluid hero_section d-flex align-items-center justify-content-center"
+      <div
+      className="hero-section"
       style={{backgroundImage: `url(${selectedImg})`}}
       >
-        <h1 className="text-center">
-          {stranica?.acf?.naslov || "Naslov nije dostupan"}
-        </h1>
+        <div className="hero-overlay">
+        </div>
       </div>
     </>
   );

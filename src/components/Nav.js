@@ -8,6 +8,18 @@ const Nav = () => {
   const location = useLocation();
   const[name, setName] = useState(null); //korisiti se samo za prikaz admin kartice, trenutno nema funkcionalnosti, ali bi se moglo koristiti u budućnosti
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
     useEffect( () => {
       const user = localStorage.getItem("username");
       if(user) setName(user);
@@ -32,7 +44,7 @@ const Nav = () => {
 
   return (
     
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className={`navbar navbar-expand-lg navbar-light bg-light sticky-nav ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <Link className="navbar-brand" to="/">
           <img src={logoImage} alt="logo" className="nav-logo" height="70"/>

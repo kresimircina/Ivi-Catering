@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import FeaturedImg from "../components/FeaturedImg";
 import HeroSection from "../components/HeroSection";
+import Nav from "../components/Nav";
 import { Link } from "react-router-dom"
 
 import Yoast from './../components/Yoast';
@@ -34,6 +35,7 @@ const Naslovna = () => {
   return (
     <>
       <Yoast yoastHeadJson={yoastHeadJson} />
+      <Nav />
       <HeroSection 
       stranica={page} 
       fallback="https://placehold.co/600x400" 
