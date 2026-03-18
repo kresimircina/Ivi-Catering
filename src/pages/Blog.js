@@ -92,6 +92,13 @@ const Blog = () => {
       <Helmet>
         <title>Blog</title>
       </Helmet>
+      {/*<HeroSection 
+        stranica={{_embedded: {"wp:featuredmedia": [{media_details: {sizes: {full: {source_url: "https://placehold.co/1200x600"}}}}]}}}
+        fallback="https://placehold.co/600x400" 
+        size="full"
+        title="Blog"
+        content="<p>Pročitajte naše najnovije članke i savjete</p>"
+      />*/}
       {loading && <Loader />}
       <div className="blog-page">
         <div className="container">

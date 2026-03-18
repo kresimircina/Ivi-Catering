@@ -11,6 +11,15 @@ const Vjencanja = () => {
     const {slug} = useParams();
     const [page, setPage] = useState(null);
     
+    const extractHeroBlock = (html) => {
+      if (!html) return { hero: "", body: "" };
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const heroBlock = doc.querySelector(".hero-section-title");
+      const hero = heroBlock ? heroBlock.outerHTML : "";
+      if (heroBlock) heroBlock.remove();
+      return { hero, body: doc.body.innerHTML };
+    };
 
         useEffect(() => {
             const fetchPage = async() => {
@@ -34,6 +43,8 @@ const Vjencanja = () => {
 
     if(!page) return <p>Učitavanje</p>;
 
+    const { hero, body } = extractHeroBlock(page.content.rendered);
+
     return (
         <>
             <Helmet>
@@ -42,9 +53,11 @@ const Vjencanja = () => {
                 <HeroSection 
                 stranica={page} 
                 fallback="https://placehold.co/600x400" 
-                size="full" 
+                size="full"
+                title={page.title.rendered}
+                content={hero}
                 />
-            <div dangerouslySetInnerHTML={{ __html:page.content.rendered }}></div>
+            <div dangerouslySetInnerHTML={{ __html: body }}></div>
             <div className="usluge-feature-grid">
                 <div className="wp-block-column">
                     <h3 className="mb-3">ZATRAŽITE PONUDU</h3>

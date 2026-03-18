@@ -39,6 +39,13 @@ const Privevent = () => {
     return (
     <>
       <Yoast yoastHeadJson={page.yoast_head_json} />
+      <HeroSection 
+        stranica={{_embedded: {"wp:featuredmedia": [{media_details: {sizes: {full: {source_url: "https://placehold.co/1200x600"}}}}]}}}
+        fallback="https://placehold.co/600x400" 
+        size="full"
+        title="Privatni Eventi"
+        content="<h1>Privatni Eventi</h1><p>Stvořite nezaboravne privatne događaje zajedno s nama</p>"
+      />
       {loading && <Loader />}
       <div className="blog-page">
         <div className="container">

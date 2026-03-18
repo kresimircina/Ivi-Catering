@@ -487,10 +487,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: transparent;
+  background: rgba(0,0,0,0.35);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hero-overlay-inner {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 20px;
 }
 
 .hero-content {
@@ -498,8 +504,28 @@ body {
   color: white;
   z-index: 2;
   max-width: 800px;
-  padding: 0 20px;
+  padding: 40px;
+  margin: 0 auto;
   animation: fadeInUp 1.5s ease-out;
+}
+
+.hero-content h1 {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  line-height: 1.2;
+}
+
+.hero-content p {
+  color: rgba(255,255,255,0.95);
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 10px;
+  line-height: 1.8;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
 .hero-logo {
@@ -518,6 +544,13 @@ body {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   letter-spacing: 2px;
   line-height: 1.2;
+  color: white;
+}
+
+.hero-section-title {
+  color: white;
+  font-weight: 800;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
 
 .hero-subtitle {
@@ -552,12 +585,21 @@ body {
 
 /* Responzivnost za hero section */
 @media (max-width: 768px) {
-  .hero-title {
+  .hero-title,
+  .hero-section-title,
+  .hero-content h1 {
     font-size: 2.5rem;
+    color: white;
   }
 
-  .hero-subtitle {
+  .hero-subtitle,
+  .hero-content p {
     font-size: 1.1rem;
+    color: rgba(255,255,255,0.95);
+  }
+
+  .hero-section-title {
+    color: white;
   }
 
   .hero-logo {
@@ -568,12 +610,21 @@ body {
 }
 
 @media (max-width: 480px) {
-  .hero-title {
+  .hero-title,
+  .hero-section-title,
+  .hero-content h1 {
     font-size: 2rem;
+    color: white;
   }
 
-  .hero-subtitle {
+  .hero-subtitle,
+  .hero-content p {
     font-size: 1rem;
+    color: rgba(255,255,255,0.95);
+  }
+
+  .hero-section-title {
+    color: white;
   }
 
   .hero-logo {
@@ -863,17 +914,21 @@ div.wp-block-button.btn-ivi {
 }
 
 /* 4. Podešavanje naslova i običnog teksta u Cover bloku */
-.wp-block-cover h2 {
-  color: #333333 !important; /* Tamnija boja za bolju vidljivost */
+.wp-block-cover h2,
+.wp-block-cover .wp-block-heading,
+.wp-block-cover p {
+  color: #ffffff !important; /* Ista boja kao lista radi dosljednosti */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.55); /* Tamna sjena za kontrast preko fotografije */
+}
+
+.wp-block-cover h2,
+.wp-block-cover .wp-block-heading {
   font-size: 2.5rem;
-  text-shadow: 2px 2px 4px rgba(255,255,255,0.8); /* Bijela sjena za kontrast */
   margin-bottom: 20px;
 }
 
 .wp-block-cover p {
-  color: #555555 !important; /* Tamnija boja */
   font-size: 1.1rem;
-  text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
   max-width: 600px;
   margin: 0 auto 15px auto;
 }

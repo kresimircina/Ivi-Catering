@@ -13,6 +13,16 @@ const Naslovna = () => {
   const[page, setPage] = useState(null);
   const [yoastHeadJson, setYoastHeadJson] = useState(null);
 
+  const extractHeroBlock = (html) => {
+    if (!html) return { hero: "", body: "" };
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const heroBlock = doc.querySelector(".hero-section-title");
+    const hero = heroBlock ? heroBlock.outerHTML : "";
+    if (heroBlock) heroBlock.remove();
+    return { hero, body: doc.body.innerHTML };
+  };
+
   useEffect(() => {
     const fetchPage = async() => {
       try{
@@ -32,6 +42,8 @@ const Naslovna = () => {
 
   if(!page) return <p>Učitavanje...</p>;
 
+  const { hero, body } = extractHeroBlock(page.content.rendered);
+
   return (
     <>
       <Yoast yoastHeadJson={yoastHeadJson} />
@@ -39,10 +51,12 @@ const Naslovna = () => {
       <HeroSection 
       stranica={page} 
       fallback="https://placehold.co/600x400" 
-      size="full" 
+      size="full"
+      title={page.title.rendered}
+      content={hero}
       />
       {/*<FeaturedImg page={page} fallback="https://placehold.co/600x400" size="full"  />*/}
-      <div dangerouslySetInnerHTML={{ __html:page.content.rendered }} />
+      <div dangerouslySetInnerHTML={{ __html: body }} />
       <div className="row">
         <div className="col-md-12 map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6048.142158441964!2d19.001158779587325!3d45.226966727294915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475c878313858ab3%3A0x419bbae0cd816d7!2sOroli%C4%8Dka%20ul.%2025%2C%2032242%2C%20Berak!5e1!3m2!1sen!2shr!4v1772559855008!5m2!1sen!2shr"
