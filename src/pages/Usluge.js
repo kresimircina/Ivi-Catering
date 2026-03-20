@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from "../components/Loader";
+import { API_BASE_URL } from '../api';
 
 import "./Blog.css"
 
@@ -20,7 +21,7 @@ const Usluge = () => {
         setLoading(true);
     
         
-            fetch("https://front2.edukacija.online/backend/wp-json/wp/v2/eventi")
+        fetch(`${API_BASE_URL}/v2/eventi`)
             .then(response => response.json())
             .then(
                 (data) => {
@@ -35,7 +36,7 @@ const Usluge = () => {
         setLoading(true);
     
         
-            let url ="https://front2.edukacija.online/backend/wp-json/wp/v2/eventi?_embed";
+        let url = `${API_BASE_URL}/v2/eventi?_embed`;
 
             if(selectedEvent) url +="&eventi" + selectedEvent;
             

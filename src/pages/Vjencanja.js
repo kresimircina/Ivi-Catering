@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import HeroSection from "../components/HeroSection";
 import { Helmet } from "react-helmet-async";
+import { API_BASE_URL } from "../api";
 
 //const BASE_URL = process.env.REACT_APP_API_URL;
 
@@ -24,7 +25,7 @@ const Vjencanja = () => {
         useEffect(() => {
             const fetchPage = async() => {
                 try{
-                    const response = await fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/eventi?slug=${slug}&_embed`);
+                    const response = await fetch(`${API_BASE_URL}/v2/eventi?slug=${slug}&_embed`);
                     if(!response.ok){
                         throw new Error("Ne mogu povući podatke");
                     }

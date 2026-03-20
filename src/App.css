@@ -212,11 +212,57 @@ footer a {
 
 
 /* Navigacija - dodatno poliranje */
+.nav-inner-container {
+  max-width: 1200px !important;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar-collapse {
+  align-items: center;
+}
+
 /* Centriranje i veličina linkova */
 .navbar-nav {
-    
-    width: 100%;
-    justify-content: center; /* Centriranje na desktopu */
+  width: auto;
+  justify-content: center;
+}
+
+.main-nav {
+  flex: 1 1 auto;
+  align-items: center;
+}
+
+.nav-contact-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.nav-contact-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid #e5d2b5;
+  background-color: #f8f1e7;
+  color: #2d5a2d;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.nav-contact-link:hover {
+  background-color: #e5d2b5;
+  color: #1f3f1f;
+  transform: translateY(-1px);
 }
 
 .navbar-nav .nav-item.dropdown {
@@ -229,9 +275,18 @@ footer a {
     /*filter: brightness(0) invert(1); 
     /* Ako je logo skroz crn, a želiš ga bijelog, koristi: filter: brightness(0) invert(1); */
     height: 70px; /* Povećano radi bolje vidljivosti */
+    width: auto;
+    max-height: 70px;
     transition: all 0.3s ease;
 
     
+}
+
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: 0;
+  flex-shrink: 0;
 }
 
 .navbar-brand img:hover {
@@ -283,15 +338,37 @@ footer a {
         box-shadow: 0 10px 15px rgba(0,0,0,0.1);
     }
 
-    .navbar-nav {
-        align-items: flex-end; /* Poravnanje desno */
-        padding-top: 20px;
+  .navbar-nav {
+    align-items: center;
+    padding-top: 16px;
     }
+
+  .main-nav {
+    width: 100%;
+  }
+
     .nav-link { 
-        margin: 10px 0;
+    margin: 8px 0;
         font-size: 1.3rem;
         padding: 10px 0;
     }
+
+  .nav-contact-actions {
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-contact-link {
+    width: 100%;
+    max-width: 280px;
+    min-width: 0;
+    height: 44px;
+    font-size: 0.9rem;
+    padding: 0 16px;
+  }
 }
 
 /* =========================================

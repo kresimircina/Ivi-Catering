@@ -8,6 +8,7 @@ import ScrollToTop from '../components/ScrollToTop';
 import BlogPost from '../components/BlogPost';
 import SwiperComponent from '../components/SwiperComponent';
 import { Helmet } from 'react-helmet-async';
+import { API_BASE_URL } from '../api';
 
 //const BASE_URL = process.env.REACT_APP_API_URL;
 
@@ -29,7 +30,7 @@ const Blog = () => {
       setLoading(true);
       
       fetch
-        ( "https://front2.edukacija.online/backend/wp-json/wp/v2/users?per_page=20")
+        (`${API_BASE_URL}/v2/users?per_page=20`)
         
         .then((response) => response.json())
         .then((data) => {
@@ -37,7 +38,7 @@ const Blog = () => {
         
       });
 
-      fetch ("https://front2.edukacija.online/backend/wp-json/wp/v2/categories")
+      fetch (`${API_BASE_URL}/v2/categories`)
       .then(response => response.json())
       .then((data) => {
         setCategories(data);
@@ -59,7 +60,7 @@ const Blog = () => {
             const per_page=6
     
         
-            let url = `https://front2.edukacija.online/backend/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${currentPage+1}`;
+            let url = `${API_BASE_URL}/v2/posts?_embed&per_page=${per_page}&page=${currentPage+1}`;
 
             if(selectedCategory) url +="&categories=1" + selectedCategory;
             if(selectedAuthor) url +="&author=" + selectedAuthor;

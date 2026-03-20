@@ -3,6 +3,7 @@ import FeaturedImg from "../components/FeaturedImg";
 import HeroSection from "../components/HeroSection";
 import Nav from "../components/Nav";
 import { Link } from "react-router-dom"
+import { API_BASE_URL } from "../api";
 
 import Yoast from './../components/Yoast';
 
@@ -26,7 +27,7 @@ const Naslovna = () => {
   useEffect(() => {
     const fetchPage = async() => {
       try{
-        const response = await fetch("https://front2.edukacija.online/backend/wp-json/wp/v2/pages/178?_embed");
+        const response = await fetch(`${API_BASE_URL}/v2/pages/178?_embed`);
         if(!response.ok){
           throw new Error('Ne mogu povući podatke');
         }

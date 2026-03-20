@@ -99,13 +99,13 @@ const Footer = () => {
                       <li className="mt-3">
                         <a href="mailto:info@cateringivi.com" className="d-flex align-items-center contact-link">
                           <FontAwesomeIcon icon={faEnvelope} className="me-3 text-gold" size="2x" /> 
-                          <span>info@</span>
+                          <span>info@cateringivi.com</span>
                         </a>
                       </li>
                       
                       <li className="mt-3">
-                        <a href="https://wa.me/385911611999" target="_blank" rel="noreferrer" className="d-flex align-items-center whatsapp-link">
-                          <FontAwesomeIcon icon={faWhatsapp} className="me-3" style={{color: "#25D366"}} size="2x"/> 
+                        <a href="https://wa.me/385992050990" target="_blank" rel="noreferrer" className="d-flex align-items-center whatsapp-link">
+                          <FontAwesomeIcon icon={faWhatsapp} className="me-3" size="2x"/> 
                           <span>Pošaljite WhatsApp poruku</span>
                         </a>
                       </li>
@@ -113,10 +113,10 @@ const Footer = () => {
 
                     <h4 className="footer-title mt-5">Pratite nas</h4>
                     <div className="footer-socials d-flex gap-3 mt-3">
-                      <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="social-icon">
+                      <a href="https://www.facebook.com/profile.php?id=61551460577818" target="_blank" rel="noreferrer" className="social-icon">
                         <FontAwesomeIcon icon={faFacebook} size="2x" />
                       </a>
-                      <a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="social-icon">
+                      <a href="https://www.instagram.com/catering.ivi?fbclid=IwY2xjawQqpyFleHRuA2FlbQIxMABicmlkETB4TUtKSnVKTkpReEluVHBJc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHiqhxZnTUhNDL23syvm_hwAGJXNDIJFMBuKWXyyI0jfPuudUTxhTPdmnw-gX_aem_KJ6zUi-tSGJv3pMfgW4nuQ" target="_blank" rel="noreferrer" className="social-icon">
                         <FontAwesomeIcon icon={faInstagram} size="2x" />
                       </a>
                     </div>

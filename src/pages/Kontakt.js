@@ -63,8 +63,8 @@ const Kontakt = () => {
             <FontAwesomeIcon icon={faPhone} className="me-3" /> +385 99 205 0990
           </a>
           
-          <a href="https://wa.me/385911611999" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faWhatsapp} className="me-3" style={{ color: '#25D366' }} /> Pošaljite nam poruku
+          <a href="https://wa.me/385992050990" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faWhatsapp} className="me-3" /> Pošaljite nam poruku
           </a>
 
           <a href="mailto:info@cateringivi.com">
@@ -72,16 +72,17 @@ const Kontakt = () => {
           </a>
           
           <div style={{ display: 'flex', alignItems: 'flex-start', color: '#333', fontWeight: 500 }}>
-            <a href="https://maps.google.com/?q=Tvoja+Adresa+123"target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faLocationDot} className="me-3 mt-1" style={{ color: '#a38558' }} /> 
+            <a href="https://maps.google.com/?q=Berak+Orolička+25" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faLocationDot} className="me-3 mt-1" /> 
               <span>Berak, Orolička 25</span>
             </a>
           </div>
         </div>
 
         <div className="socials">
-          <a href="https://www.facebook.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebook} className="me-3" size="2x" /></a>
-          <a href="https://www.instagram.com" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} className="me-3" size="2x" /></a>
+          <a href="https://www.facebook.com/profile.php?id=61551460577818" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebook} className="me-3" size="2x" /></a>
+          <a href="https://www.instagram.com/catering.ivi?fbclid=IwY2xjawQqpyFleHRuA2FlbQIxMABicmlkETB4TUtKSnVKTkpReEluVHBJc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHiqhxZnTUhNDL23syvm_hwAGJXNDIJFMBuKWXyyI0jfPuudUTxhTPdmnw-gX_aem_KJ6zUi-tSGJv3pMfgW4nuQ" target="_blank" rel="noreferrer" className="social-icon">
+            <FontAwesomeIcon icon={faInstagram} className="me-3" size="2x" /></a>
         </div>
       </div>
     </div>

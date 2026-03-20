@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Loader from "../components/Loader";
 import HeroSection from "../components/HeroSection";
 import { useParams } from 'react-router-dom';
+import { API_BASE_URL } from '../api';
 
 import "./Blog.css"
 
@@ -21,7 +22,7 @@ const PoslovniEventi = () => {
         setLoading(true);
     
         
-            fetch("https://front2.edukacija.online/backend/wp-json/wp/v2/eventi?_embed")
+        fetch(`${API_BASE_URL}/v2/eventi?_embed`)
             .then(response => response.json())
             .then(
                 (data) => {

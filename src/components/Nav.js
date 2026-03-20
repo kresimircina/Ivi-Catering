@@ -45,7 +45,7 @@ const Nav = () => {
   return (
     
       <nav className={`navbar navbar-expand-lg navbar-light bg-light sticky-nav ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container">
+      <div className="container nav-inner-container">
         <Link className="navbar-brand" to="/">
           <img src={logoImage} alt="logo" className="nav-logo" height="70"/>
         </Link>
@@ -63,7 +63,7 @@ const Nav = () => {
 
         <div className="collapse navbar-collapse" id="mainNavbar">
       
-          <ul className="navbar-nav ms-auto gap-3">
+          <ul className="navbar-nav main-nav mx-auto gap-lg-3">
             
             
             <li className="nav-item dropdown">
@@ -98,6 +98,15 @@ const Nav = () => {
               ""
             )*/}
           </ul>
+
+          <div className="nav-contact-actions">
+            <a href="tel:+385992050990" className="nav-contact-link">
+              Nazovi
+            </a>
+            <a href="https://wa.me/385992050990" target="_blank" rel="noreferrer" className="nav-contact-link whatsapp">
+              WhatsApp
+            </a>
+          </div>
           {/*ispod je link za prijavu i košaricu,ali nije potrebno za ovaj web trenutno..moglo bi dobro doći kasnije*/}
           {/*<ul className="navbar-nav ms-auto align-items-center">
             <li className="nav-item">
