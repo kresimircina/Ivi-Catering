@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import logoImage from "../img/Ivi-logo2.svg"; // Importaj sliku direktno
 import { useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const Nav = () => {
 
@@ -100,11 +104,14 @@ const Nav = () => {
           </ul>
 
           <div className="nav-contact-actions">
-            <a href="tel:+385992050990" className="nav-contact-link">
-              Nazovi
+            <a href="tel:+385992050990" className="nav-contact-link d-inline-flex d-lg-none" aria-label="Nazovi" data-tooltip="Nazovi">
+              <FontAwesomeIcon icon={faPhone} />
             </a>
-            <a href="https://wa.me/385992050990" target="_blank" rel="noreferrer" className="nav-contact-link whatsapp">
-              WhatsApp
+            <a href="mailto:info@cateringivi.com" className="nav-contact-link nav-tooltip-left" aria-label="Pošalji mail" data-tooltip="Pošalji mail">
+              <FontAwesomeIcon icon={faEnvelope} />
+            </a>
+            <a href="https://wa.me/385992050990" target="_blank" rel="noreferrer" className="nav-contact-link nav-tooltip-right whatsapp" aria-label="Otvori WhatsApp" data-tooltip="WhatsApp">
+              <FontAwesomeIcon icon={faWhatsapp} />
             </a>
           </div>
           {/*ispod je link za prijavu i košaricu,ali nije potrebno za ovaj web trenutno..moglo bi dobro doći kasnije*/}
