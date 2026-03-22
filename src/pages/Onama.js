@@ -55,7 +55,7 @@ const Onama = () => {
       content={hero}
       />*
       {/*<FeaturedImg page={page} fallback="https://placehold.co/600x400" size="full"  />*/}
-      <div dangerouslySetInnerHTML={{ __html: body }} />
+      <div className="page-content onama-wp-content" dangerouslySetInnerHTML={{ __html: body }} />
       {/*<div className="row">
         <div className="col-md-4 map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6048.142158441964!2d19.001158779587325!3d45.226966727294915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475c878313858ab3%3A0x419bbae0cd816d7!2sOroli%C4%8Dka%20ul.%2025%2C%2032242%2C%20Berak!5e1!3m2!1sen!2shr!4v1772559855008!5m2!1sen!2shr"
