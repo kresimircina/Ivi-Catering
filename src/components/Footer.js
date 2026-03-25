@@ -40,86 +40,81 @@ const Footer = () => {
     <>
       <footer className="footer-area">
         <div className="container">
-          <div className="row">
-            {/*lijeva strana - linkovi */}
-            <div className="col-md-6 mb-4 mb-md-0">
-              <div className="row">
-                <div className="col-md-6 mb-4 mb-md-0"> 
-                  <h4 className="footer-title">Usluge</h4>
-                    <ul className="footer-links">
-                      <li>
-                        <Link to="/usluga/vjencanja">Vjenčanja</ Link>
-                      </li>
-                      <li>
-                        <Link to="/usluga/privatni-eventi">Privatni eventi</ Link>
-                      </li>
-                      <li>
-                        <Link to="/usluga/poslovni-eventi">Poslovni eventi</ Link>
-                      </li>
-                    
-                    </ul>  
-                </div>
-                <div className="col-md-6">
-                  <h4 className="footer-title">Informacije</h4>
-                    <ul className="footer-links">
-                      <li>
-                        <Link to="/onama">O nama</Link>
-                      </li>
-                      <li>
-                        <Link to="/kontakt">Kontakt</Link>
-                      </li>
-                    </ul>
-                </div>
+          <div className="row row-cols-1 row-cols-md-4 gx-3 gy-4">
+            <div className="col">
+              <h4 className="footer-title">Usluge</h4>
+              <ul className="footer-links">
+                <li>
+                  <Link to="/usluga/vjencanja">Vjenčanja</ Link>
+                </li>
+                <li>
+                  <Link to="/usluga/privatni-eventi">Privatni eventi</ Link>
+                </li>
+                <li>
+                  <Link to="/usluga/poslovni-eventi">Poslovni eventi</ Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="col">
+              <h4 className="footer-title">Informacije</h4>
+              <ul className="footer-links">
+                <li>
+                  <Link to="/onama">O nama</Link>
+                </li>
+                <li>
+                  <Link to="/kontakt">Kontakt</Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="col">
+              <h4 className="footer-title">Kontaktirajte<br />nas</h4>
+              <ul className="footer-contact">
+                <li>
+                  <div className="d-flex">
+                    <a href="https://maps.google.com/?q=132+Dartmouth+Street+Boston" target="_blank" rel="noreferrer" className="d-flex align-items center me-3 mt-1 contact-link">
+                      <FontAwesomeIcon icon={faLocationDot} className="me-3 text-gold" size="2x" />
+                      <span>
+                        {page.acf.adresa ? page.acf.adresa : "Nema adrese"}
+                      </span>
+                    </a>
+                  </div>
+                </li>
+
+                <li className="mt-3">
+                  <a href="tel:+385992050990" className="d-flex align-items-center contact-link">
+                    <FontAwesomeIcon icon={faPhone} className="me-3 text-gold" size="2x" />
+                    <span>+385 99 205 0990</span>
+                  </a>
+                </li>
+
+                <li className="mt-3">
+                  <a href="mailto:info@cateringivi.com" className="d-flex align-items-center contact-link">
+                    <FontAwesomeIcon icon={faEnvelope} className="me-3 text-gold" size="2x" />
+                    <span>info@cateringivi.com</span>
+                  </a>
+                </li>
+
+                <li className="mt-3">
+                  <a href="https://wa.me/385992050990" target="_blank" rel="noreferrer" className="d-flex align-items-center whatsapp-link">
+                    <FontAwesomeIcon icon={faWhatsapp} className="me-3" size="2x"/>
+                    <span>Pošaljite WhatsApp poruku</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="col">
+              <h4 className="footer-title">Pratite nas</h4>
+              <div className="footer-socials d-flex gap-3 mt-3">
+                <a href="https://www.facebook.com/profile.php?id=61551460577818" target="_blank" rel="noreferrer" className="social-icon">
+                  <FontAwesomeIcon icon={faFacebook} size="2x" />
+                </a>
+                <a href="https://www.instagram.com/catering.ivi?fbclid=IwY2xjawQqpyFleHRuA2FlbQIxMABicmlkETB4TUtKSnVKTkpReEluVHBJc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHiqhxZnTUhNDL23syvm_hwAGJXNDIJFMBuKWXyyI0jfPuudUTxhTPdmnw-gX_aem_KJ6zUi-tSGJv3pMfgW4nuQ" target="_blank" rel="noreferrer" className="social-icon">
+                  <FontAwesomeIcon icon={faInstagram} size="2x" />
+                </a>
               </div>
-            </div> 
-
-           {/* DESNA STRANA - KONTAKT INFO */}
-            <div className="col-md-6">
-                    <h4 className="footer-title">Kontaktirajte nas</h4>
-                    <ul className="footer-contact">
-                      <li>
-                        <div className="d-flex align-items-start">
-                            <a href="https://maps.google.com/?q=132+Dartmouth+Street+Boston" target="_blank" rel="noreferrer" className="d-flex align-items center me-3 mt-1 contact-link text-gold ">
-                              <FontAwesomeIcon icon={faLocationDot} size="2x" /> 
-                              <span style={{color: "#4a5d4a"}}>
-                                {page.acf.adresa ? page.acf.adresa : "Nema adrese"}
-                              </span>
-                            </a>
-                            
-                        </div>
-                      </li>
-                      
-                      <li className="mt-3">
-                        <a href="tel:+385992050990" className="d-flex align-items-center contact-link">
-                          <FontAwesomeIcon icon={faPhone} className="me-3 text-gold" size="2x" /> 
-                          <span>+385 99 205 0990</span>
-                        </a>
-                      </li>
-                      
-                      <li className="mt-3">
-                        <a href="mailto:info@cateringivi.com" className="d-flex align-items-center contact-link">
-                          <FontAwesomeIcon icon={faEnvelope} className="me-3 text-gold" size="2x" /> 
-                          <span>info@cateringivi.com</span>
-                        </a>
-                      </li>
-                      
-                      <li className="mt-3">
-                        <a href="https://wa.me/385992050990" target="_blank" rel="noreferrer" className="d-flex align-items-center whatsapp-link">
-                          <FontAwesomeIcon icon={faWhatsapp} className="me-3" size="2x"/> 
-                          <span>Pošaljite WhatsApp poruku</span>
-                        </a>
-                      </li>
-                    </ul>
-
-                    <h4 className="footer-title mt-5">Pratite nas</h4>
-                    <div className="footer-socials d-flex gap-3 mt-3">
-                      <a href="https://www.facebook.com/profile.php?id=61551460577818" target="_blank" rel="noreferrer" className="social-icon">
-                        <FontAwesomeIcon icon={faFacebook} size="2x" />
-                      </a>
-                      <a href="https://www.instagram.com/catering.ivi?fbclid=IwY2xjawQqpyFleHRuA2FlbQIxMABicmlkETB4TUtKSnVKTkpReEluVHBJc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHiqhxZnTUhNDL23syvm_hwAGJXNDIJFMBuKWXyyI0jfPuudUTxhTPdmnw-gX_aem_KJ6zUi-tSGJv3pMfgW4nuQ" target="_blank" rel="noreferrer" className="social-icon">
-                        <FontAwesomeIcon icon={faInstagram} size="2x" />
-                      </a>
-                    </div>
             </div>
           </div>
           

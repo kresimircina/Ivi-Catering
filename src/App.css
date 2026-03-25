@@ -1188,28 +1188,26 @@ div.wp-block-button.btn-ivi {
 }
 
 .text-gold {
-  color: #a38558; /* Tvoja zlatna */
+  color: #4a5d4a;
 }
 
 .contact-link, .whatsapp-link {
   color: #4a5d4a;
   text-decoration: none;
   transition: all 0.3s ease;
+  display: inline-flex;
 }
 
-.contact-link:hover {
-  color: #a38558;
-}
-
-.contact-link svg:hover{
-    color: #676969;
-  transform: translateY(-4px);
-}
-
+.contact-link:hover,
 .whatsapp-link:hover {
-  opacity: 0.8;
-  color: #25D366;
-   transform: translateY(-4px);
+  color: #a38558;
+  transform: translateX(5px);
+}
+
+.contact-link svg,
+.whatsapp-link svg {
+  color: inherit;
+  transition: inherit;
 }
 
 /* Društvene mreže */
@@ -1219,15 +1217,15 @@ div.wp-block-button.btn-ivi {
   justify-content: center;
   width: 45px;
   height: 45px;
-  color: #444;
+  color: #4a5d4a;
   border-radius: 50%;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-  color: #676969;
-  transform: translateY(-3px);
+  color: #a38558;
+  transform: translateX(5px);
 }
 
 /* Gumb za povratak na vrh */
@@ -1240,6 +1238,7 @@ div.wp-block-button.btn-ivi {
   color: #333;
   border: none;
   padding: 10px 20px;
+  margin-top: 10px;
   border-radius: 999px;
   font-weight: 600;
   font-size: 0.85rem;
