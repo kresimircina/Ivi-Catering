@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import { useLocation } from "react-router-dom"
 import ScrollToTop from "./ScrollToTop"
@@ -7,35 +6,19 @@ import { faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faInstagram, faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
-const BASE_URL = process.env.REACT_APP_API_URL
-
+// Globalne informacije obrta - mijenjaju se ovdje
+const ADRESA = "Berak, Orolička 25";
+const TELEFON = "+385 99 205 0990";
+const EMAIL = "info@cateringivi.com";
+const GOOGLE_MAPS_URL = "https://maps.google.com/?q=" + encodeURIComponent(ADRESA);
 
 const Footer = () => {
   const location = useLocation();
-  const[page, setPage] = useState(null);
 
-  useEffect(() => {
-      const fetchPage = async() => {
-        try{
-          const response = await fetch(BASE_URL + 'v2/pages/178?_embed');
-          if(!response.ok){
-            throw new Error('Ne mogu povući podatke');
-          }
-          const data = await response.json();
-          setPage(data);
-        } catch (err) {
-          console.log(err.message);
-        }
-      }
-      fetchPage();
-    }, []);
-  
-    if(!page) return <p style={{textAlign: "center", padding:"20px"}}>Učitavanje...</p>;
-
-  if(location.pathname === "/signin") {
-    return null; //React traži da se vrati null, a ne prazan return
+  if (location.pathname === "/signin") {
+    return null;
   }
-  
+
   return (
     <>
       <footer className="footer-area">
@@ -45,13 +28,13 @@ const Footer = () => {
               <h4 className="footer-title">Usluge</h4>
               <ul className="footer-links">
                 <li>
-                  <Link to="/usluga/vjencanja">Vjenčanja</ Link>
+                  <Link to="/usluga/vjencanja">Vjenčanja</Link>
                 </li>
                 <li>
-                  <Link to="/usluga/privatni-eventi">Privatni eventi</ Link>
+                  <Link to="/usluga/privatni-eventi">Privatni eventi</Link>
                 </li>
                 <li>
-                  <Link to="/usluga/poslovni-eventi">Poslovni eventi</ Link>
+                  <Link to="/usluga/poslovni-eventi">Poslovni eventi</Link>
                 </li>
               </ul>
             </div>
@@ -73,32 +56,30 @@ const Footer = () => {
               <ul className="footer-contact">
                 <li>
                   <div className="d-flex">
-                    <a href="https://maps.google.com/?q=132+Dartmouth+Street+Boston" target="_blank" rel="noreferrer" className="d-flex align-items center me-3 mt-1 contact-link">
+                    <a href={GOOGLE_MAPS_URL} target="_blank" rel="noreferrer" className="d-flex align-items-center me-3 mt-1 contact-link">
                       <FontAwesomeIcon icon={faLocationDot} className="me-3 text-gold" size="2x" />
-                      <span>
-                        {page.acf.adresa ? page.acf.adresa : "Nema adrese"}
-                      </span>
+                      <span>{ADRESA}</span>
                     </a>
                   </div>
                 </li>
 
                 <li className="mt-3">
-                  <a href="tel:+385992050990" className="d-flex align-items-center contact-link">
+                  <a href={`tel:${TELEFON.replace(/\s/g, "")}`} className="d-flex align-items-center contact-link">
                     <FontAwesomeIcon icon={faPhone} className="me-3 text-gold" size="2x" />
-                    <span>+385 99 205 0990</span>
+                    <span>{TELEFON}</span>
                   </a>
                 </li>
 
                 <li className="mt-3">
-                  <a href="mailto:info@cateringivi.com" className="d-flex align-items-center contact-link">
+                  <a href={`mailto:${EMAIL}`} className="d-flex align-items-center contact-link">
                     <FontAwesomeIcon icon={faEnvelope} className="me-3 text-gold" size="2x" />
-                    <span>info@cateringivi.com</span>
+                    <span>{EMAIL}</span>
                   </a>
                 </li>
 
                 <li className="mt-3">
-                  <a href="https://wa.me/385992050990" target="_blank" rel="noreferrer" className="d-flex align-items-center whatsapp-link">
-                    <FontAwesomeIcon icon={faWhatsapp} className="me-3" size="2x"/>
+                  <a href={`https://wa.me/${TELEFON.replace(/[\s+]/g, "")}`} target="_blank" rel="noreferrer" className="d-flex align-items-center whatsapp-link">
+                    <FontAwesomeIcon icon={faWhatsapp} className="me-3" size="2x" />
                     <span>Pošaljite WhatsApp poruku</span>
                   </a>
                 </li>
@@ -111,17 +92,18 @@ const Footer = () => {
                 <a href="https://www.facebook.com/profile.php?id=61551460577818" target="_blank" rel="noreferrer" className="social-icon">
                   <FontAwesomeIcon icon={faFacebook} size="2x" />
                 </a>
-                <a href="https://www.instagram.com/catering.ivi?fbclid=IwY2xjawQqpyFleHRuA2FlbQIxMABicmlkETB4TUtKSnVKTkpReEluVHBJc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHiqhxZnTUhNDL23syvm_hwAGJXNDIJFMBuKWXyyI0jfPuudUTxhTPdmnw-gX_aem_KJ6zUi-tSGJv3pMfgW4nuQ" target="_blank" rel="noreferrer" className="social-icon">
+                <a href="https://www.instagram.com/catering.ivi" target="_blank" rel="noreferrer" className="social-icon">
                   <FontAwesomeIcon icon={faInstagram} size="2x" />
                 </a>
               </div>
             </div>
           </div>
-          
-          {/* Donji red s TOP gumbom skroz desno */}
+
           <div className="row mt-5 pt-4 border-top">
             <div className="col-12 d-flex justify-content-between align-items-center">
-              <p style={{margin: 0, color: "#666", fontSize: "0.9rem"}}>© 2026 Ivi Catering. Sva prava pridržana.</p>
+              <p style={{ margin: 0, color: "#666", fontSize: "0.9rem" }}>
+                © 2026 Ivi Catering. Sva prava pridržana.
+              </p>
               <button className="btn-top" onClick={ScrollToTop} title="Povratak na vrh">
                 TOP ↑
               </button>

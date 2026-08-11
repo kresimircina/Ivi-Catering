@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import FeaturedImg from "../components/FeaturedImg";
 import HeroSection from "../components/HeroSection";
 import Nav from "../components/Nav";
 import { Link } from "react-router-dom"
@@ -7,11 +6,9 @@ import { API_BASE_URL } from "../api";
 
 import Yoast from './../components/Yoast';
 
-//const BASE_URL = process.env.REACT_APP_API_URL
-
 const Naslovna = () => {
 
-  const[page, setPage] = useState(null);
+  const [page, setPage] = useState(null);
   const [yoastHeadJson, setYoastHeadJson] = useState(null);
 
   const extractHeroBlock = (html) => {
@@ -25,15 +22,18 @@ const Naslovna = () => {
   };
 
   useEffect(() => {
-    const fetchPage = async() => {
-      try{
-        const response = await fetch(`${API_BASE_URL}/v2/pages/178?_embed`);
-        if(!response.ok){
+    const fetchPage = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/v2/stranica?slug=naslovna&_embed`);
+        if (!response.ok) {
           throw new Error('Ne mogu povući podatke');
         }
         const data = await response.json();
-        setPage(data);
-        setYoastHeadJson(data?.yoast_head_json)
+        if (data.length === 0) {
+          throw new Error('Stranica nije pronađena');
+        }
+        setPage(data[0]);
+        setYoastHeadJson(data[0]?.yoast_head_json);
       } catch (err) {
         console.log(err.message);
       }
@@ -41,7 +41,7 @@ const Naslovna = () => {
     fetchPage();
   }, []);
 
-  if(!page) return <p>Učitavanje...</p>;
+  if (!page) return <p>Učitavanje...</p>;
 
   const { hero, body } = extractHeroBlock(page.content.rendered);
 
@@ -49,20 +49,26 @@ const Naslovna = () => {
     <>
       <Yoast yoastHeadJson={yoastHeadJson} />
       <Nav />
-      <HeroSection 
-      stranica={page} 
-      fallback="https://placehold.co/600x400" 
-      size="full"
-      title={page.title.rendered}
-      content={hero}
+      <HeroSection
+        stranica={page}
+        fallback="https://placehold.co/600x400"
+        size="full"
+        title={page.title.rendered}
+        content={hero}
       />
-      {/*<FeaturedImg page={page} fallback="https://placehold.co/600x400" size="full"  />*/}
       <div className="naslovna-wp-content" dangerouslySetInnerHTML={{ __html: body }} />
       <div className="row">
         <div className="col-md-12 map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6048.142158441964!2d19.001158779587325!3d45.226966727294915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475c878313858ab3%3A0x419bbae0cd816d7!2sOroli%C4%8Dka%20ul.%2025%2C%2032242%2C%20Berak!5e1!3m2!1sen!2shr!4v1772559855008!5m2!1sen!2shr"
-           width="600" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" 
-           referrerpolicy="no-referrer-when-downgrade" title="mapa lokacije IVi-Catering"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6048.142158441964!2d19.001158779587325!3d45.226966727294915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475c878313858ab3%3A0x419bbae0cd816d7!2sOroli%C4%8Dka%20ul.%2025%2C%2032242%2C%20Berak!5e1!3m2!1sen!2shr!4v1772559855008!5m2!1sen!2shr"
+            width="600"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="mapa lokacije IVi-Catering"
+          ></iframe>
         </div>
       </div>
 
@@ -78,8 +84,6 @@ const Naslovna = () => {
         </div>
       </div>
     </>
-      
-      
   );
 };
 
