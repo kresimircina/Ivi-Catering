@@ -44,7 +44,15 @@ const Nav = () => {
     localStorage.removeItem("username");
     window.location.reload();
     setName(null);
-  } 
+  }
+
+  const closeMobileMenu = () => {
+    const navbarCollapse = document.getElementById("mainNavbar");
+    if (navbarCollapse && navbarCollapse.classList.contains("show") && window.bootstrap) {
+      const bsCollapse = window.bootstrap.Collapse.getInstance(navbarCollapse) || new window.bootstrap.Collapse(navbarCollapse, { toggle: false });
+      bsCollapse.hide();
+    }
+  }
 
   return (
     
@@ -73,11 +81,11 @@ const Nav = () => {
             <li className="nav-item dropdown">
               <Link className="nav-link dropdown-toggle" to="#!" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usluge</ Link>
                 <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" to="/usluga/vjencanja">Vjenčanja</Link>
+                  <li><Link className="dropdown-item" to="/usluga/vjencanja" onClick={closeMobileMenu}>Vjenčanja</Link>
                   </li>
-                  <li><Link className="dropdown-item" to="/usluga/privatni-eventi">Privatni eventi</Link>
+                  <li><Link className="dropdown-item" to="/usluga/privatni-eventi" onClick={closeMobileMenu}>Privatni eventi</Link>
                   </li>
-                   <li><Link className="dropdown-item" to="/usluga/poslovni-eventi">Poslovni eventi</Link>
+                   <li><Link className="dropdown-item" to="/usluga/poslovni-eventi" onClick={closeMobileMenu}>Poslovni eventi</Link>
                   </li>
                 </ul>
             </li>
@@ -85,10 +93,10 @@ const Nav = () => {
               <Link className="nav-link text-end" to="/kategorije">Kategorije</Link>
             </li>*/}
             <li className="nav-item">
-              <Link className="nav-link" to="/o-nama">O nama</Link>
+              <Link className="nav-link" to="/o-nama" onClick={closeMobileMenu}>O nama</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/kontakt">Kontakt</Link>
+              <Link className="nav-link" to="/kontakt" onClick={closeMobileMenu}>Kontakt</Link>
             </li>
           {/*ispod je kartica za admina  koja se prikazuje samo ako je korisnik prijavljen, vodi na stranicu admina gdje se mogu dobiti informacije o korisnicima i narudžbama
           a vidi se samo ako je korisnik prijavljen, odnosno ako postoji username u localstorageu*/}
