@@ -20,8 +20,8 @@ const Kontakt = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_ow0pthg', 'template_hhj1pow', form.current, {
-        publicKey: 'woiCIcQsBiWzesjbt',
+      .sendForm('service_ivi_gmail', 'template_ivi_kontakt', form.current, {
+        publicKey: 'RgGxrLuPZIytVqGc1',
       })
       .then(
         () => {
